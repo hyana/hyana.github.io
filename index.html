@@ -1,0 +1,2077 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>hyana's homepage</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/galmuri@2.40.3/dist/galmuri.css" rel="stylesheet" integrity="sha384-55uQGdclWjXwWY0yHikdtcfcat9pPBqMBCVFIeWjRhvPPUYbpJLhIJegzTcFoh/A" crossorigin="anonymous">
+<style>
+:root {
+  --page: #dfe9f3;
+  --dot: #c9d9ea;
+  --frame: #6f9fd3;
+  --frame-dark: #3f6ea8;
+  --panel: #ffffff;
+  --line: #c8c8c8;
+  --soft: #f4f7fb;
+  --ink: #333333;
+  --muted: #666666;
+  --link: #2f5f99;
+  --orange: #c24e00;
+  --red: #c4262b;
+  --tab: #3f6ea8;
+  --pixel: 'Galmuri11', 'Gowun Dodum', monospace;
+  --body: 'Gowun Dodum', 'Apple SD Gothic Neo', Dotum, sans-serif;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+  background-color: var(--page);
+  background-image: radial-gradient(var(--dot) 1.5px, transparent 1.6px);
+  background-size: 14px 14px;
+  color: var(--ink);
+  font: 12px/1.6 var(--body);
+  padding: 28px 16px 40px;
+}
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+button { font: inherit; color: inherit; }
+
+.hompy { max-width: 920px; margin: 0 auto; position: relative; }
+
+/* Top strip: counter, title, BGM */
+.top { display: grid; grid-template-columns: 218px 1fr; gap: 0 12px; align-items: end; padding: 0 74px 6px 22px; }
+.counter { font: 11px var(--pixel); color: var(--muted); letter-spacing: .02em; }
+.counter b { color: var(--red); font-weight: 400; }
+.counter i { font-style: normal; color: #444; }
+.title-row { display: flex; justify-content: space-between; align-items: end; gap: 12px; }
+.hompy-title { display: inline-flex; align-items: center; gap: 6px; font: 400 16px var(--pixel); letter-spacing: .02em; color: var(--frame-dark); margin: 0; }
+.hompy-title .ico { width: 14px; height: 14px; margin: 0; vertical-align: 0; }
+.hompy-url { font: 11px var(--pixel); color: var(--muted); }
+
+.bgm {
+  position: absolute; right: 74px; top: -24px;
+  display: flex; align-items: center; gap: 8px;
+  background: #fff; border: 1px solid var(--line); border-radius: 12px;
+  padding: 2px 10px 2px 6px; width: 260px; font-size: 11px;
+}
+.bgm .note { color: var(--orange); font-weight: 800; }
+.bgm .track { overflow: hidden; white-space: nowrap; flex: 1; }
+.bgm .track span { display: inline-block; animation: marquee 12s linear infinite; }
+.bgm button { border: 0; background: none; cursor: pointer; color: var(--frame-dark); padding: 0 2px; }
+@keyframes marquee { 0%, 15% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
+
+/* Frame */
+.frame {
+  position: relative;
+  background: var(--frame);
+  border-radius: 18px;
+  padding: 12px;
+  margin-right: 62px;
+  box-shadow: 0 2px 0 var(--frame-dark);
+}
+.frame-inner {
+  border: 2px dashed rgba(255,255,255,.75);
+  border-radius: 12px;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: 206px 1fr;
+  gap: 10px;
+  min-height: 560px;
+}
+.panel { background: var(--panel); border: 1px solid #a9c3e0; border-radius: 10px; padding: 12px; }
+
+/* Left panel */
+.left { display: flex; flex-direction: column; gap: 10px; }
+.mood { font-size: 11px; color: var(--muted); border-bottom: 1px dotted var(--line); padding-bottom: 6px; }
+.mood b { color: var(--orange); font-weight: 700; }
+.photo { width: 100%; aspect-ratio: 1; object-fit: cover; border: 1px solid var(--line); display: block; image-rendering: pixelated; }
+.headline { font-size: 11.5px; color: #555; }
+.left .rule { border-top: 1px dotted var(--line); }
+.me { display: flex; align-items: center; gap: 8px; }
+.me .mini { width: 26px; height: 36px; flex: none; }
+.who { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 6px; }
+.who small { width: 100%; color: var(--muted); font-size: 11px; }
+.me b { color: var(--frame-dark); font-size: 13px; }
+.me span { color: var(--muted); font-size: 11px; }
+.sel { width: 100%; font: 11px var(--body); border: 1px solid var(--line); background: var(--soft); padding: 3px 4px; color: var(--ink); }
+
+/* Right panel */
+.right { display: flex; flex-direction: column; min-width: 0; }
+.right-head { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--frame); padding-bottom: 6px; margin-bottom: 10px; }
+.right-head h2 { margin: 0; font: 800 13px var(--body); color: var(--frame-dark); }
+.right-head span { font-size: 11px; color: var(--muted); }
+
+.news { display: grid; grid-template-columns: minmax(0, 1fr) 150px; gap: 14px; }
+.box-title { font: 700 11px var(--body); color: var(--orange); margin: 0 0 4px; }
+.news ul { list-style: none; margin: 0; padding: 0; }
+.news li { display: flex; align-items: center; height: 24px; }
+.news li .tag { flex: none; }
+.news .box-title { height: 18px; line-height: 18px; }
+.folders-box { border-left: 1px dotted var(--line); padding-left: 12px; }
+.news li button { flex: 1 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; text-align: left; border: 0; background: none; padding: 0; cursor: pointer; color: var(--ink); }
+.news li button:focus-visible { outline-offset: -2px; }
+.news li button:hover { color: var(--link); text-decoration: underline; }
+.tag { display: inline-block; font-size: 11px; color: #fff; background: var(--frame); border-radius: 2px; padding: 0 4px; margin-right: 4px; line-height: 15px; }
+.tag.Project { background: #b84c00; } .tag.Craft { background: #2f7a42; } .tag.Team { background: #6b4fb0; }
+.tag.Doc { background: #2f5f99; } .tag.On-call { background: #b3261e; } .tag.Fix { background: #6b6b6b; }
+.counts { display: grid; grid-template-columns: 1fr auto; grid-auto-rows: 24px; align-items: center; align-content: start; margin: 0; }
+.counts dt { color: #555; display: flex; align-items: center; } .counts dd { margin: 0; text-align: right; color: var(--muted); font-family: var(--pixel); }
+.counts dd b { color: var(--orange); font-weight: 400; }
+
+.room-wrap { margin-top: 12px; border: 1px solid var(--line); border-radius: 6px; background: linear-gradient(#f9fbff, #eef4fb); }
+.room-wrap .label { font: 700 11px var(--body); color: var(--frame-dark); padding: 6px 10px 0; }
+.room { display: block; width: 100%; height: auto; border-radius: 0 0 6px 6px; }
+
+
+/* Tabs */
+.tabs { position: absolute; right: -62px; top: 34px; display: flex; flex-direction: column; gap: 3px; }
+.tabs button {
+  width: 60px; padding: 7px 0; border: 0; border-radius: 0 7px 7px 0;
+  background: var(--tab); color: #fff; font: 700 11px var(--body); cursor: pointer; text-align: center;
+}
+.tabs button:hover { background: #2f5a8f; }
+.tabs button[aria-current="page"] { background: #fff; color: var(--frame-dark); border: 1px solid var(--frame); border-left: 0; }
+
+/* Album */
+.folders { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 10px; }
+.folders button { border: 1px solid var(--line); background: var(--soft); padding: 2px 8px; font-size: 11px; cursor: pointer; border-radius: 2px; }
+.folders button[aria-pressed="true"] { background: var(--frame-dark); color: #fff; border-color: var(--frame-dark); }
+.album { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; }
+.pic { display: flex; flex-direction: column; justify-content: flex-start; border: 1px solid var(--line); padding: 6px 6px 8px; background: #fff; cursor: pointer; text-align: left; box-shadow: 1px 1px 0 #e5e5e5; }
+.pic:hover { border-color: var(--frame); }
+.pic .shot { aspect-ratio: 4/3; display: grid; place-items: center; text-align: center; padding: 6px; color: #fff; }
+.pic .shot b { display: block; font-size: 26px; line-height: 1.1; }
+.pic .shot small { display: block; font: 11px/1.3 var(--pixel); margin-top: 6px; }
+.pic .shot { width: 100%; }
+.pic .cap { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; min-height: 2.8em; margin-top: 6px; font-weight: 700; font-size: 11.5px; line-height: 1.4; }
+.pic .date { display: block; color: var(--muted); font-size: 11px; }
+.shot.Project { background: linear-gradient(135deg, #ffb26b, #ff7a1a); }
+.shot.Craft { background: linear-gradient(135deg, #8fd19e, #4c9a5e); }
+.shot.Team { background: linear-gradient(135deg, #b7a2ea, #7b5fc0); }
+.shot.Doc { background: linear-gradient(135deg, #9cc3ec, #4f7fbf); }
+.shot.On-call { background: linear-gradient(135deg, #f0918d, #c9413c); }
+.shot.Fix { background: linear-gradient(135deg, #c9c9c9, #8a8a8a); }
+.skills { display: flex; flex-wrap: wrap; gap: 4px; margin: 0 0 12px; }
+.skills span, .skills button { border: 1px solid var(--line); background: var(--soft); border-radius: 10px; padding: 0 8px; font: 11px var(--pixel); color: #555; }
+.skills button { cursor: pointer; color: var(--frame-dark); background: #fff; }
+.skills button:hover { border-color: var(--frame); }
+.history + .contacts, .skills + .contacts { margin-top: 0; }
+.pager { display: flex; justify-content: center; flex-wrap: wrap; gap: 4px; margin-top: 12px; font: 12px var(--pixel); }
+.pager button { min-width: 24px; height: 24px; border: 1px solid var(--line); background: #fff; color: var(--ink); cursor: pointer; font: inherit; border-radius: 2px; }
+.pager button:hover:not(:disabled) { border-color: var(--frame); color: var(--link); }
+.pager button[aria-current="page"] { background: var(--frame-dark); border-color: var(--frame-dark); color: #fff; }
+.pager button:disabled { color: var(--line); cursor: default; }
+.ico { width: 12px; height: 12px; flex: none; vertical-align: -1px; margin-right: 4px; }
+.line { display: inline-flex; align-items: center; }
+.pic .shot .glyph { font: 22px/1.1 var(--pixel); letter-spacing: .02em; text-shadow: 1px 1px 0 rgba(0,0,0,.25); }
+.tag.Hackathon { background: #8a6400; }
+.shot.Hackathon { background: linear-gradient(135deg, #ffd66b, #d49a00); }
+.tagrow button.more { border-style: dashed; color: var(--muted); }
+
+/* Diary */
+.post { border-bottom: 1px dotted var(--line); padding: 10px 0 12px; }
+.post-date { font: 12px var(--pixel); color: var(--orange); }
+.post-date span { color: var(--muted); margin-left: 6px; font-family: var(--body); font-size: 11px; }
+.post h3 { margin: 2px 0 4px; font-size: 12.5px; color: var(--frame-dark); }
+.post p { margin: 0 0 6px; }
+.post .chips { display: flex; flex-wrap: wrap; gap: 4px; }
+.chip { border: 1px solid var(--line); background: var(--soft); border-radius: 10px; padding: 0 8px; font-size: 11px; cursor: pointer; }
+.chip:hover { border-color: var(--frame); color: var(--link); }
+
+/* Board */
+.board { width: 100%; border-collapse: collapse; font-size: 11.5px; }
+.board th { background: var(--soft); border-top: 2px solid var(--frame); border-bottom: 1px solid var(--line); padding: 5px 4px; font-weight: 700; color: #555; }
+.board td { border-bottom: 1px dotted var(--line); padding: 5px 4px; }
+.board td.n, .board td.d { color: var(--muted); text-align: center; white-space: nowrap; font-family: var(--pixel); font-size: 11px; }
+.board td a { color: var(--ink); }
+.board td button { border: 0; background: none; padding: 0; cursor: pointer; text-align: left; color: var(--ink); }
+.board td button:hover { color: var(--link); text-decoration: underline; }
+.board .prize { color: var(--orange); font-weight: 700; }
+
+/* Profile */
+.prof p { margin: 0 0 8px; }
+.history { list-style: none; margin: 0; padding: 0; }
+.history li { display: grid; grid-template-columns: 150px 1fr; gap: 8px; padding: 6px 0; border-bottom: 1px dotted var(--line); }
+.history .when { white-space: nowrap; font: 11px var(--pixel); color: var(--frame-dark); }
+.history b { color: var(--ink); }
+
+.foot { text-align: center; color: var(--muted); font-size: 11px; margin-top: 10px; padding-right: 62px; }
+.foot b { color: var(--orange); font-weight: 400; font-family: var(--pixel); }
+
+/* Popup window */
+.pop[hidden] { display: none; }
+.pop { position: fixed; inset: 0; background: rgba(40,60,90,.25); display: grid; place-items: center; padding: 16px; z-index: 10; }
+.win { width: min(520px, 100%); max-height: 86vh; overflow: auto; background: #fff; border: 2px solid var(--frame-dark); border-radius: 4px; box-shadow: 4px 4px 0 rgba(0,0,0,.15); }
+.win-bar { position: sticky; top: 0; display: flex; justify-content: space-between; align-items: center; background: var(--frame-dark); color: #fff; padding: 4px 8px; font-weight: 700; font-size: 11.5px; }
+.win-bar button { border: 1px solid #fff; background: none; color: #fff; width: 18px; height: 18px; line-height: 14px; padding: 0; cursor: pointer; font-size: 11px; }
+.win-body { padding: 14px; }
+.win-body h3 { margin: 0 0 2px; font-size: 14px; color: var(--frame-dark); }
+.meta { color: var(--muted); font-size: 11px; margin-bottom: 8px; }
+.win-body ul { margin: 6px 0; padding-left: 16px; }
+.contacts { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 12px; font-size: 11.5px; }
+.photo-empty { width: 100%; aspect-ratio: 1; border: 1px dashed var(--line); background: var(--soft); display: grid; place-items: center; font-size: 40px; }
+
+.lang { display: flex; justify-content: flex-end; gap: 2px; margin-bottom: -4px; }
+.lang button { border: 1px solid var(--line); background: var(--soft); font-size: 11px; padding: 0 6px; cursor: pointer; border-radius: 2px; }
+.lang button[aria-pressed="true"] { background: var(--frame-dark); color: #fff; border-color: var(--frame-dark); }
+button.mood { display: block; width: 100%; text-align: left; padding: 0 0 6px; border-width: 0 0 1px; border-style: dotted; border-color: var(--line); background: none; cursor: pointer; }
+button.mood:hover b { text-decoration: underline; }
+.job { font-size: 11px; color: #666; }
+.job span { color: var(--frame-dark); }
+.nowbox { border: 1px dashed var(--line); background: var(--soft); padding: 6px 8px; font-size: 11px; }
+.nowbox p { margin: 0 0 2px; } .nowbox b { color: var(--frame-dark); }
+.shortcuts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; }
+.shortcuts button { border: 1px solid var(--line); background: #fff; font-size: 11px; padding: 4px 0; cursor: pointer; color: #666; }
+.shortcuts button:hover { border-color: var(--frame); }
+.shortcuts b { display: block; font: 15px var(--pixel); color: var(--orange); }
+.counts dt button { display: inline-flex; align-items: center; border: 0; background: none; padding: 0; cursor: pointer; color: #555; font: inherit; }
+.counts dt button:hover { color: var(--link); text-decoration: underline; }
+.tagrow { display: flex; flex-wrap: wrap; gap: 4px; align-items: center; margin: -4px 0 10px; }
+.tagrow span { font-size: 11px; color: var(--muted); margin-right: 2px; }
+.tagrow button, .stackchip { border: 1px solid var(--line); background: #fff; border-radius: 10px; padding: 0 7px; font: 11px var(--pixel); color: var(--frame-dark); cursor: pointer; }
+.tagrow button[aria-pressed="true"] { background: var(--orange); border-color: var(--orange); color: #fff; }
+.tagrow button:hover, .stackchip:hover { border-color: var(--frame); }
+.tchips { display: flex; flex-wrap: wrap; justify-content: center; gap: 3px; margin-top: 8px; }
+.tchips i { font: normal 11px var(--pixel); background: rgba(0,0,0,.45); border-radius: 8px; padding: 0 6px; }
+.stacks { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 6px; }
+.room .spot { fill: transparent; cursor: pointer; outline: none; }
+.room .spot:hover, .room .spot:focus-visible { fill: rgba(255,255,255,.3); stroke: var(--orange); stroke-width: .6; }
+.room-wrap .label span { font-weight: 400; color: var(--muted); margin-left: 8px; }
+.cal { border: 1px solid var(--line); background: var(--soft); padding: 6px 8px 8px; margin: 0 auto 6px; max-width: 300px; }
+.cal-head { display: flex; justify-content: space-between; align-items: center; font: 12px var(--pixel); color: var(--frame-dark); margin-bottom: 4px; }
+.cal-head button { border: 0; background: none; cursor: pointer; color: var(--frame-dark); }
+.cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px; text-align: center; font: 11px/20px var(--pixel); }
+.cal-grid .dow { color: var(--muted); } .cal-grid .dow:first-child { color: var(--red); }
+.cal-grid button.has { border: 0; padding: 0; background: var(--orange); color: #fff; border-radius: 50%; cursor: pointer; font: inherit; width: 20px; height: 20px; margin: 0 auto; }
+.cal-grid .today { outline: 1px solid var(--frame); border-radius: 50%; }
+.pop-photo { image-rendering: pixelated; width: 120px; aspect-ratio: 1; object-fit: cover; border: 1px solid var(--line); float: right; margin: 0 0 8px 10px; }
+
+:focus-visible { outline: 2px solid var(--frame-dark); outline-offset: 2px; }
+.tabs button:focus-visible { outline-color: #fff; outline-offset: -4px; }
+.skip { position: absolute; left: 16px; top: -40px; background: #fff; color: var(--link); padding: 4px 10px; border: 2px solid var(--frame-dark); z-index: 20; }
+.skip:focus { top: 4px; }
+.surf { font-size: 11px; border: 1px solid var(--line); background: var(--soft); }
+.surf summary { cursor: pointer; padding: 3px 6px; list-style: none; }
+.surf summary::-webkit-details-marker { display: none; }
+.surf summary::before { content: '▼ '; }
+.surf[open] summary::before { content: '▲ '; }
+.surf ul { list-style: none; margin: 0; padding: 2px 6px 6px; display: flex; flex-direction: column; gap: 2px; }
+@media (prefers-reduced-motion: reduce) {
+  .bgm .track span { animation: none !important; }
+  html { scroll-behavior: auto; }
+}
+
+@media (max-width: 960px) {
+  .news { grid-template-columns: minmax(0, 1fr); gap: 8px; }
+  .folders-box { border-left: 0; padding: 6px 0 0; border-top: 1px dotted var(--line); }
+  .counts { display: flex; flex-wrap: wrap; align-items: center; gap: 2px 6px; }
+  .counts dd { margin-right: 10px; }
+}
+
+@media (max-width: 760px) {
+  body { padding: 12px 16px 32px; }
+  .top { grid-template-columns: 1fr; padding: 0 4px 6px; gap: 2px; }
+  .bgm { position: static; width: auto; margin: 0 0 8px; }
+  .frame { margin-right: 0; padding: 8px; }
+  .frame-inner { grid-template-columns: 1fr; padding: 8px; }
+  .headline { min-height: 0; }
+  .photo, .photo-empty { max-width: 180px; margin: 0 auto; }
+  .tabs { position: static; flex-direction: row; flex-wrap: wrap; margin-bottom: 6px; }
+  .tabs button { width: auto; flex: 1; border-radius: 7px 7px 0 0; }
+  .tabs button[aria-current="page"] { border: 1px solid var(--frame); border-bottom: 0; }
+  .history li { grid-template-columns: 1fr; gap: 0; }
+  .foot { padding-right: 0; }
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#right">Skip to content</a>
+<div class="hompy">
+  <div class="bgm" aria-label="Background music player (decorative)">
+    <span class="note">♫</span>
+    <span class="track"><span id="track">Merge Queue (Green Build Remix) · Hyana</span></span>
+    <button type="button" id="play" aria-label="Play">▶</button>
+  </div>
+
+  <div class="top">
+    <div class="counter" id="counter"></div>
+    <div class="title-row">
+      <h1 class="hompy-title" id="title"></h1>
+      <span class="hompy-url" id="url"></span>
+    </div>
+  </div>
+
+  <div class="frame">
+    <nav class="tabs" aria-label="Sections" id="tabs"></nav>
+    <div class="frame-inner">
+      <aside class="panel left" id="left"></aside>
+      <main class="panel right" id="right" tabindex="-1"></main>
+    </div>
+  </div>
+  <p class="foot" id="foot"></p>
+</div>
+
+<div class="pop" id="pop" hidden>
+  <div class="win" role="dialog" aria-modal="true" aria-labelledby="win-title">
+    <div class="win-bar"><span id="win-title"></span><button type="button" id="win-close" aria-label="Close">×</button></div>
+    <div class="win-body" id="win-body"></div>
+  </div>
+</div>
+
+<script id="data" type="application/json">{
+  "profile": {
+    "name": "Hyana Kang",
+    "pronouns": "she/her",
+    "pronounce": "hee-AH-nah",
+    "title": "Software Engineer",
+    "team": "Handshake",
+    "headline": "I build internal tools for AI data operations and the shared foundations other engineers build on. Before that, I spent three years on a design system.",
+    "bio": [
+      "I started at Handshake in 2022 as an intern on the Frontend Platform team, and stayed to work on the company design system: components, design tokens, icons, tables, docs and accessibility fixes used by every product team.",
+      "In 2026 I moved to Handshake AI. I build the tools operators use to set up and run AI data projects, including JSON editors for project setup, role editing, navigation, an audit log, and tools that let AI agents do operator work safely."
+    ],
+    "contacts": [
+      {
+        "kind": "github",
+        "label": "GitHub",
+        "url": "https://github.com/hyana"
+      },
+      {
+        "kind": "linkedin",
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/hyana/"
+      },
+      {
+        "kind": "email",
+        "label": "Email",
+        "user": "seohyeonhyanakang",
+        "domain": "gmail.com"
+      }
+    ],
+    "now": [
+      {
+        "label": "Reading",
+        "text": "",
+        "ko": {
+          "label": "읽는 중",
+          "text": ""
+        }
+      },
+      {
+        "label": "Listening",
+        "text": "",
+        "ko": {
+          "label": "듣는 중",
+          "text": ""
+        }
+      },
+      {
+        "label": "Learning",
+        "text": "",
+        "ko": {
+          "label": "배우는 중",
+          "text": ""
+        }
+      },
+      {
+        "label": "Into",
+        "text": "",
+        "ko": {
+          "label": "요즘 빠진 것",
+          "text": ""
+        }
+      }
+    ],
+    "location": "Boston, MA",
+    "education": [
+      {
+        "school": "Smith College",
+        "start": "2018-09",
+        "degree": "B.A. in Computer Science",
+        "place": "Northampton, MA",
+        "date": "2023-01",
+        "honors": "Magna Cum Laude, 3.98/4.0 GPA"
+      }
+    ],
+    "skills": [
+      "React",
+      "TypeScript",
+      "HTML/CSS",
+      "Responsive Design",
+      "Web Accessibility",
+      "Internationalization (i18n)",
+      "React Router",
+      "Nx",
+      "Design Systems",
+      "Storybook",
+      "Figma",
+      "Docusaurus",
+      "Chromatic",
+      "Jest",
+      "Git",
+      "Cursor",
+      "Linear",
+      "Jira"
+    ]
+  },
+  "chapters": [
+    {
+      "id": "asimula",
+      "title": "Asimula, Founding Team",
+      "short": "Asimula",
+      "start": "2021-02",
+      "end": "2021-08",
+      "summary": "I was a technology and executive assistant intern on the founding team of a virtual reality concert startup in Seoul."
+    },
+    {
+      "id": "frontend-platform",
+      "title": "Handshake Careers, Frontend Platform",
+      "short": "Frontend Platform",
+      "start": "2022-06",
+      "end": "2026-01",
+      "summary": "I worked on the company design system: components, design tokens, icons, data tables and docs that every product team builds on."
+    },
+    {
+      "id": "allocations",
+      "title": "Handshake AI, Allocations",
+      "short": "Allocations",
+      "start": "2026-02",
+      "end": "2026-04",
+      "summary": "I worked on how contributors get onto AI data projects: identity verification gates, onboarding flows and project recommendations."
+    },
+    {
+      "id": "opx",
+      "title": "Handshake AI, Operator Experience",
+      "short": "Operator Experience",
+      "start": "2026-04",
+      "end": null,
+      "summary": "I build the tools operators use to set up and run AI data projects, and the agent tools that let them automate that work."
+    }
+  ],
+  "entries": [
+    {
+      "id": "in-product-agent-hints",
+      "start": "2026-10",
+      "end": "2026-11",
+      "kind": "project",
+      "role": "Lead engineer",
+      "title": "In-product agent hints",
+      "stack": "React",
+      "summary": "I added dismissible hints across operator pages that open a ready-made prompt in the operator's AI agent."
+    },
+    {
+      "id": "project-audit-log",
+      "start": "2026-10",
+      "end": "2026-11",
+      "kind": "project",
+      "role": "Lead engineer",
+      "title": "Project audit log",
+      "stack": "TypeScript · Postgres",
+      "summary": "I built an audit log that shows who changed a project's settings, rules and pipeline, including history from before the log existed."
+    },
+    {
+      "id": "dashboards-and-monitors",
+      "start": "2026-10",
+      "end": "2026-10",
+      "kind": "craft",
+      "role": "Engineer",
+      "title": "Dashboards and monitors",
+      "stack": "Datadog",
+      "summary": "I built dashboards and monitors for my team's features, plus logging for a tool server."
+    },
+    {
+      "id": "repo-rule-for-audit-events",
+      "start": "2026-10",
+      "end": "2026-10",
+      "kind": "doc",
+      "role": "Author",
+      "title": "Repo rule for audit events",
+      "stack": "AI agents",
+      "summary": "I wrote a repo rule and an agent skill that require an audit event with every project-level change."
+    },
+    {
+      "id": "mcp-in-chatgpt-and-codex",
+      "start": "2026-09",
+      "end": "2026-10",
+      "kind": "project",
+      "role": "Lead engineer",
+      "title": "MCP in ChatGPT and Codex",
+      "stack": "MCP",
+      "summary": "I finished the work that lets operators use our MCP tools from ChatGPT and Codex, through a security review to launch."
+    },
+    {
+      "id": "planning-data-moved-to-postgres",
+      "start": "2026-09",
+      "end": "2026-11",
+      "kind": "craft",
+      "role": "Lead engineer",
+      "title": "Planning data moved to Postgres",
+      "stack": "Postgres · Temporal",
+      "summary": "I wrote the design doc and moved a planning feature off live warehouse queries onto versioned Postgres tables with a scheduled sync."
+    },
+    {
+      "id": "settings-cleanup",
+      "start": "2026-08",
+      "end": "2026-10",
+      "kind": "leadership",
+      "role": "Owner",
+      "title": "Settings cleanup",
+      "stack": "Code ownership",
+      "summary": "I became codeowner of operator settings and navigation and reviewed other teams' moves out of the settings page."
+    },
+    {
+      "id": "agent-tools-for-operators-mcp",
+      "start": "2026-08",
+      "end": "2026-10",
+      "kind": "project",
+      "role": "Core contributor",
+      "title": "Agent tools for operators (MCP)",
+      "stack": "MCP · TypeScript",
+      "summary": "I built Model Context Protocol tools that let AI agents list, create, approve and move work in bulk, with human approval and expiry for risky actions."
+    },
+    {
+      "id": "feature-flag-cleanup",
+      "start": "2026-08",
+      "end": "2026-10",
+      "kind": "craft",
+      "role": "Engineer",
+      "title": "Feature flag cleanup",
+      "stack": "TypeScript",
+      "summary": "After each rollout, I removed its feature flags and old code paths instead of leaving them for later."
+    },
+    {
+      "id": "new-operator-navigation",
+      "start": "2026-07",
+      "end": "2026-08",
+      "kind": "project",
+      "role": "Lead engineer",
+      "title": "New operator navigation",
+      "stack": "React · design system",
+      "summary": "I replaced a legacy navigation with the shared design system navigation across two codebases, then deleted the old code."
+    },
+    {
+      "id": "on-call-rotations",
+      "start": "2026-07",
+      "end": "2026-10",
+      "kind": "incident",
+      "role": "On-call",
+      "title": "On-call rotations",
+      "stack": "On-call",
+      "summary": "I took primary on-call rotations, covered for teammates, and turned support reports into shipped fixes."
+    },
+    {
+      "id": "onboarding-new-engineers",
+      "start": "2026-07",
+      "end": "2026-10",
+      "kind": "leadership",
+      "role": "Mentor",
+      "title": "Onboarding new engineers",
+      "stack": "Mentoring",
+      "summary": "I onboarded new teammates to our codebase in person and through code review."
+    },
+    {
+      "id": "incident-commander-for-a-broken-form",
+      "start": "2026-06",
+      "end": "2026-06",
+      "kind": "incident",
+      "role": "Incident commander",
+      "title": "Incident commander for a broken form",
+      "stack": "On-call",
+      "summary": "I declared and ran an incident from an after-hours page when a third-party form stopped loading."
+    },
+    {
+      "id": "role-editing-on-live-projects",
+      "start": "2026-06",
+      "end": "2026-08",
+      "kind": "project",
+      "role": "Lead engineer",
+      "title": "Role editing on live projects",
+      "stack": "React · tRPC",
+      "summary": "I wrote the design doc and built role editing, so operators can change roles on running projects without an engineering request."
+    },
+    {
+      "id": "bulk-task-assignment",
+      "start": "2026-05",
+      "end": "2026-05",
+      "kind": "project",
+      "role": "Lead engineer",
+      "title": "Bulk task assignment",
+      "stack": "React · CSV",
+      "summary": "I let project leads create and assign tasks in one CSV upload, or assign selected tasks from the table."
+    },
+    {
+      "id": "project-recommendations-for-contributors",
+      "start": "2026-04",
+      "end": "2026-05",
+      "kind": "project",
+      "role": "Core contributor",
+      "title": "Project recommendations for contributors",
+      "stack": "React · analytics",
+      "summary": "I built a \"Recommended for you\" section, its tracking, and a speed fix for the recommendations endpoint."
+    },
+    {
+      "id": "security-and-reliability-fixes",
+      "start": "2026-04",
+      "end": "2026-04",
+      "kind": "incident",
+      "role": "Engineer",
+      "title": "Security and reliability fixes",
+      "stack": "tRPC · Temporal",
+      "summary": "I fixed permission checks with a lint guardrail, a webhook retry loop, and a batch job that left people stuck in onboarding."
+    },
+    {
+      "id": "json-editors-for-project-setup",
+      "start": "2026-04",
+      "end": "2026-08",
+      "kind": "project",
+      "role": "Lead engineer",
+      "title": "JSON editors for project setup",
+      "stack": "React · CodeMirror",
+      "summary": "I compared editor libraries, then built a Canvas and JSON toggle so operators and agents can edit and validate a whole project setup as JSON."
+    },
+    {
+      "id": "project-subject-areas",
+      "start": "2026-04",
+      "end": "2026-06",
+      "kind": "project",
+      "role": "Lead engineer",
+      "title": "Project subject areas",
+      "stack": "Postgres · React",
+      "summary": "I added a required subject area to projects, with migrations, a backfill, endpoints and UI."
+    },
+    {
+      "id": "project-naming-pool",
+      "start": "2026-03",
+      "end": "2026-04",
+      "kind": "project",
+      "role": "Lead engineer",
+      "title": "Project naming pool",
+      "stack": "React · Postgres",
+      "summary": "I built a name pool with autocomplete and a guard against duplicate project names."
+    },
+    {
+      "id": "inline-rule-criteria",
+      "start": "2026-03",
+      "end": "2026-03",
+      "kind": "project",
+      "role": "Lead engineer",
+      "title": "Inline rule criteria",
+      "stack": "React",
+      "summary": "I let operators create and edit match criteria inside every rule dialog instead of a separate tab."
+    },
+    {
+      "id": "identity-verification-gates",
+      "start": "2026-02",
+      "end": "2026-06",
+      "kind": "project",
+      "role": "Lead engineer",
+      "title": "Identity verification gates",
+      "stack": "TypeScript",
+      "summary": "I wrote the design doc and added verification checks to every path where contributors pick up work, with clear messages and a grandfathering rule."
+    },
+    {
+      "id": "document-request-flow",
+      "start": "2026-02",
+      "end": "2026-03",
+      "kind": "project",
+      "role": "Lead engineer",
+      "title": "Document request flow",
+      "stack": "React",
+      "summary": "I built an admin tool to request documents in bulk and one modal system that coordinates identity and document checks."
+    },
+    {
+      "id": "circular-dependencies-removed",
+      "start": "2026-01",
+      "end": "2026-01",
+      "kind": "craft",
+      "role": "Engineer",
+      "title": "Circular dependencies removed",
+      "stack": "TypeScript",
+      "summary": "I removed every circular dependency in the design system packages and added a lint rule to keep them out."
+    },
+    {
+      "id": "one-icon-set-across-design-and-code",
+      "start": "2025-11",
+      "end": "2026-01",
+      "kind": "project",
+      "role": "Lead engineer",
+      "title": "One icon set across design and code",
+      "stack": "React · Figma",
+      "summary": "I replaced the design system's icons with a new set shared by Figma and two product codebases."
+    },
+    {
+      "id": "layout-grid",
+      "start": "2025-09",
+      "end": "2025-11",
+      "kind": "project",
+      "role": "Lead engineer",
+      "title": "Layout grid",
+      "stack": "React · Storybook",
+      "summary": "I built a responsive layout component with docs, a playground, and an AI editor rule that builds layouts from Figma."
+    },
+    {
+      "id": "legacy-icon-sets-deleted",
+      "start": "2025-08",
+      "end": "2025-08",
+      "kind": "project",
+      "role": "Lead engineer",
+      "title": "Legacy icon sets deleted",
+      "stack": "React",
+      "summary": "I moved every remaining legacy icon to the design system set, then deleted the old sets."
+    },
+    {
+      "id": "visual-regression-checks",
+      "start": "2025-08",
+      "end": "2025-08",
+      "kind": "craft",
+      "role": "Engineer",
+      "title": "Visual regression checks",
+      "stack": "Storybook · Chromatic",
+      "summary": "I added Storybook and Chromatic visual checks to the shared tables and filters."
+    },
+    {
+      "id": "design-playground-launch",
+      "start": "2025-07",
+      "end": "2025-08",
+      "kind": "leadership",
+      "role": "Contributor",
+      "title": "Design playground launch",
+      "stack": "Mentoring",
+      "summary": "I launched a live prototyping tool built by our summer intern and set up its backlog."
+    },
+    {
+      "id": "ai-tooling-for-design-system-adoption",
+      "start": "2025-06",
+      "end": "2025-11",
+      "kind": "leadership",
+      "role": "Lead engineer",
+      "title": "AI tooling for design system adoption",
+      "stack": "ESLint · Cursor",
+      "summary": "I used lint autofixes and AI editor rules so engineers get the right component pattern without reading the docs first."
+    },
+    {
+      "id": "button-redesign-with-an-autofix",
+      "start": "2025-05",
+      "end": "2025-07",
+      "kind": "project",
+      "role": "Lead engineer",
+      "title": "Button redesign with an autofix",
+      "stack": "React · ESLint",
+      "summary": "I reworked buttons with new visuals, deprecated old variants with decision logs, and shipped a lint autofix for the migration."
+    },
+    {
+      "id": "filter-fixes-and-new-primitives",
+      "start": "2025-03",
+      "end": "2025-06",
+      "kind": "craft",
+      "role": "Engineer",
+      "title": "Filter fixes and new primitives",
+      "stack": "React",
+      "summary": "I fixed date ranges, search and lost state in shared filters, and added popover arrows and responsive tabs."
+    },
+    {
+      "id": "design-token-pipeline",
+      "start": "2025-03",
+      "end": "2025-11",
+      "kind": "project",
+      "role": "Core contributor",
+      "title": "Design token pipeline",
+      "stack": "Style Dictionary",
+      "summary": "I upgraded the design token build and added foundation tokens that prepare the system for dark mode."
+    },
+    {
+      "id": "responsive-tables-and-a-filter-pill",
+      "start": "2025-02",
+      "end": "2025-03",
+      "kind": "project",
+      "role": "Lead engineer",
+      "title": "Responsive tables and a filter pill",
+      "stack": "React · a11y",
+      "summary": "I made shared filters and tables work on small screens and built an accessible checkable filter pill."
+    },
+    {
+      "id": "ui-library-consolidation-working-group",
+      "start": "2025-01",
+      "end": "2025-07",
+      "kind": "leadership",
+      "role": "Organizer",
+      "title": "UI library consolidation working group",
+      "stack": "Leadership",
+      "summary": "I ran the weekly working group that merged two UI libraries into one: parity tracking, naming decisions and scope calls."
+    },
+    {
+      "id": "one-layout-for-every-data-table",
+      "start": "2024-11",
+      "end": "2025-01",
+      "kind": "project",
+      "role": "Lead engineer",
+      "title": "One layout for every data table",
+      "stack": "React",
+      "summary": "I shipped a new table layout behind a flag, moved other teams' tables onto it, then made it the default."
+    },
+    {
+      "id": "breakpoint-design-tokens",
+      "start": "2024-10",
+      "end": "2024-10",
+      "kind": "craft",
+      "role": "Engineer",
+      "title": "Breakpoint design tokens",
+      "stack": "Design tokens",
+      "summary": "I added layout breakpoint tokens and matched the screen size threshold to them."
+    },
+    {
+      "id": "integration-tests-for-shared-filters",
+      "start": "2024-08",
+      "end": "2024-09",
+      "kind": "craft",
+      "role": "Engineer",
+      "title": "Integration tests for shared filters",
+      "stack": "Testing",
+      "summary": "I built the first integration test suite for the shared filters: mock data, schemas and every filter type."
+    },
+    {
+      "id": "figma-parity-for-shared-components",
+      "start": "2024-05",
+      "end": "2025-06",
+      "kind": "project",
+      "role": "Lead engineer",
+      "title": "Figma parity for shared components",
+      "stack": "React · Figma",
+      "summary": "I audited the design system against Figma with designers, filed the gaps, and fixed many of them."
+    },
+    {
+      "id": "ready-made-table-cell-types",
+      "start": "2024-04",
+      "end": "2024-07",
+      "kind": "project",
+      "role": "Lead engineer",
+      "title": "Ready-made table cell types",
+      "stack": "React",
+      "summary": "I added shared cell types (text, number, status, avatar, tags, link) to the shared data table, with docs."
+    },
+    {
+      "id": "typescript-aware-lint-rule",
+      "start": "2024-04",
+      "end": "2024-05",
+      "kind": "craft",
+      "role": "Engineer",
+      "title": "TypeScript-aware lint rule",
+      "stack": "ESLint · TypeScript",
+      "summary": "I switched the monolith to a TypeScript-aware no-shadow rule and removed the suppressions the old rule forced on people."
+    },
+    {
+      "id": "accessibility-fixes-in-shared-ui",
+      "start": "2024-03",
+      "end": "2024-06",
+      "kind": "craft",
+      "role": "Engineer",
+      "title": "Accessibility fixes in shared UI",
+      "stack": "a11y",
+      "summary": "I fixed screen reader, keyboard and link visibility issues in components used across the product."
+    },
+    {
+      "id": "new-icons-including-an-ai-icon",
+      "start": "2024-03",
+      "end": "2024-04",
+      "kind": "craft",
+      "role": "Engineer",
+      "title": "New icons, including an AI icon",
+      "stack": "SVG · Figma",
+      "summary": "I added new icons for social links, add actions and AI features."
+    },
+    {
+      "id": "accessible-date-picker",
+      "start": "2024-03",
+      "end": "2024-10",
+      "kind": "project",
+      "role": "Lead engineer",
+      "title": "Accessible date picker",
+      "stack": "React · a11y",
+      "summary": "I wrote the plan and built a typeable, validated date picker that replaced an older input across product pages."
+    },
+    {
+      "id": "design-system-docs-reorganized",
+      "start": "2024-02",
+      "end": "2024-03",
+      "kind": "doc",
+      "role": "Author",
+      "title": "Design system docs reorganized",
+      "stack": "Docusaurus",
+      "summary": "I flattened the docs site, merged scattered examples into one page per component, and wrote missing docs."
+    },
+    {
+      "id": "react-17-upgrade",
+      "start": "2024-01",
+      "end": "2024-02",
+      "kind": "craft",
+      "role": "Lead engineer",
+      "title": "React 17 upgrade",
+      "stack": "React",
+      "summary": "I removed the library that blocked the upgrade, fixed the failing test suites and landed React 17 in a large monolith."
+    },
+    {
+      "id": "shared-component-api-improvements",
+      "start": "2024-01",
+      "end": "2024-03",
+      "kind": "craft",
+      "role": "Engineer",
+      "title": "Shared component API improvements",
+      "stack": "React",
+      "summary": "I improved menus, tabs, checkboxes, number inputs, dropdowns and tooltips in the design system."
+    },
+    {
+      "id": "localization-lint-rule",
+      "start": "2023-08",
+      "end": "2023-09",
+      "kind": "project",
+      "role": "Lead engineer",
+      "title": "Localization lint rule",
+      "stack": "ESLint · i18n",
+      "summary": "I added a lint rule that catches hard-coded English strings in shared components, then removed the ones it found."
+    },
+    {
+      "id": "keyboard-focus-and-contrast-fixes",
+      "start": "2023-07",
+      "end": "2023-09",
+      "kind": "craft",
+      "role": "Engineer",
+      "title": "Keyboard focus and contrast fixes",
+      "stack": "a11y",
+      "summary": "I made focus rings show only for keyboard users, added a focus trap, and fixed focus and contrast bugs."
+    },
+    {
+      "id": "new-visual-theme-for-shared-components",
+      "start": "2023-06",
+      "end": "2023-10",
+      "kind": "project",
+      "role": "Core contributor",
+      "title": "New visual theme for shared components",
+      "stack": "React · CSS",
+      "summary": "I brought tags, switches, filter pills, alerts and more in line with a new Figma theme while keeping the older themes working."
+    },
+    {
+      "id": "toast-rebuild",
+      "start": "2023-06",
+      "end": "2023-12",
+      "kind": "project",
+      "role": "Lead engineer",
+      "title": "Toast rebuild",
+      "stack": "React · a11y",
+      "summary": "I rebuilt the toast component for the new theme, added new variants and fixed focus bugs."
+    },
+    {
+      "id": "icon-migration-inside-the-design-system",
+      "start": "2023-05",
+      "end": "2023-10",
+      "kind": "project",
+      "role": "Lead engineer",
+      "title": "Icon migration inside the design system",
+      "stack": "React · SVG",
+      "summary": "I replaced three older icon libraries inside shared components with the design system's own icons and moved the icon catalog to the docs site."
+    },
+    {
+      "id": "docs-move-from-storybook-to-docusaurus",
+      "start": "2023-05",
+      "end": "2023-08",
+      "kind": "doc",
+      "role": "Author",
+      "title": "Docs move from Storybook to Docusaurus",
+      "stack": "Docusaurus",
+      "summary": "I proposed moving the design system docs to Docusaurus, wrote the migration guide, and rewrote many component pages myself."
+    },
+    {
+      "id": "date-input-calendar-button",
+      "start": "2023-04",
+      "end": "2023-08",
+      "kind": "project",
+      "role": "Lead engineer",
+      "title": "Date input calendar button",
+      "stack": "React",
+      "summary": "I added a calendar button to the date input, fixed props that did not work, and brought the date picker onto the new theme."
+    },
+    {
+      "id": "code-reviews",
+      "start": "2023-04",
+      "end": "2026-11",
+      "kind": "leadership",
+      "role": "Reviewer",
+      "title": "Code reviews",
+      "stack": "Code review",
+      "summary": "I review code across several repos, with a focus on accessibility, tests, permissions and shared patterns. I also interview engineering candidates."
+    },
+    {
+      "id": "design-system-releases-and-changelogs",
+      "start": "2023-03",
+      "end": "2024-10",
+      "kind": "leadership",
+      "role": "Owner",
+      "title": "Design system releases and changelogs",
+      "stack": "Release management",
+      "summary": "I ran the design system release process, upgraded it in the main app, and wrote the changelog posts for frontend engineers."
+    },
+    {
+      "id": "storybook-guide-plugin",
+      "start": "2023-03",
+      "end": "2023-04",
+      "kind": "craft",
+      "role": "Engineer",
+      "title": "Storybook guide plugin",
+      "stack": "Storybook · Node",
+      "summary": "I wrote a Storybook build plugin that adds help and usage guides to every component page."
+    },
+    {
+      "id": "small-design-system-fixes",
+      "start": "2022-08",
+      "end": "2023-03",
+      "kind": "papercut",
+      "role": "Intern",
+      "title": "Small design system fixes",
+      "stack": "React",
+      "summary": "Small fixes and API additions to shared components that product teams kept running into."
+    },
+    {
+      "id": "design-token-reference-pages",
+      "start": "2022-06",
+      "end": "2022-08",
+      "kind": "project",
+      "role": "Intern",
+      "title": "Design token reference pages",
+      "stack": "Storybook",
+      "summary": "My intern project: accessible Storybook pages that list the design system's color, shadow, type and size tokens."
+    },
+    {
+      "id": "storybook-theme-and-addons",
+      "start": "2022-06",
+      "end": "2022-08",
+      "kind": "craft",
+      "role": "Intern",
+      "title": "Storybook theme and addons",
+      "stack": "Storybook",
+      "summary": "I set up the company Storybook theme, interaction tests and status addons, and fixed build config issues."
+    },
+    {
+      "id": "vr-concert-prototype",
+      "start": "2021-02",
+      "end": "2021-08",
+      "kind": "project",
+      "role": "Technology / Executive Assistant Intern",
+      "title": "VR concert platform prototype",
+      "stack": "Unity · C#",
+      "summary": "I designed and developed a frontend prototype of a virtual reality concert platform that helped raise pre-seed funding.",
+      "glyph": "VR"
+    },
+    {
+      "id": "accessible-vr-concert-pitch",
+      "start": "2021-02",
+      "end": "2021-08",
+      "kind": "project",
+      "role": "Technology / Executive Assistant Intern",
+      "glyph": "♪",
+      "title": "Pitch for accessible VR concerts",
+      "stack": "Product pitch · a11y",
+      "summary": "I pitched a concept to make concerts accessible through virtual reality, which won government support."
+    }
+  ],
+  "hackathons": [
+    {
+      "id": "hack-2026",
+      "year": "2026",
+      "event": "Company hackathon",
+      "prize": "Best Agentic Build",
+      "team": "DoG",
+      "summary": "I pitched and captained a team that built an agent which goes through a project the way a new contributor does and reports where it got stuck."
+    },
+    {
+      "id": "hack-2025",
+      "year": "2025",
+      "event": "Company hackathon",
+      "prize": "AI judge's pick",
+      "team": "The Silver Sluggers",
+      "summary": "A marketplace idea that connects AI project work with job opportunities for students."
+    },
+    {
+      "id": "hack-2024",
+      "year": "2024",
+      "event": "Company hackathon",
+      "prize": "Category winner",
+      "team": "The Rizzlers",
+      "summary": "Profile badges that students earn for activity, to bring more students to the social feed."
+    },
+    {
+      "id": "hack-2023",
+      "year": "2023",
+      "event": "Company hackathon",
+      "prize": "Category winner",
+      "team": "Campaign Interest Forms",
+      "summary": "Interest forms in recruiting campaigns, so employers can hear from students before a job or event exists."
+    }
+  ],
+  "changelog": [
+    {
+      "version": "1.0.0",
+      "date": "2026-11-16",
+      "notes": [
+        "Hello! First version of my minihompy."
+      ]
+    }
+  ],
+  "stats": {},
+  "posts": [
+    {
+      "id": "todo",
+      "date": "2026-11-16",
+      "title": "To-do",
+      "body": [
+        "Next up for this page:",
+        "1. More personalization: my hobbies, college and more.",
+        "2. Find a use for the Board."
+      ]
+    },
+    {
+      "date": "2026-11-16",
+      "title": "Hello",
+      "body": [
+        "Hello and welcome to my little homepage! It is a tribute to the mini homepages I loved in the 2000s.",
+        "Look around the Album for projects and hackathons. More posts soon."
+      ],
+      "id": "hello"
+    }
+  ],
+  "room": {
+    "window": {
+      "en": {
+        "title": "Window",
+        "text": ""
+      },
+      "ko": {
+        "title": "창문",
+        "text": ""
+      }
+    },
+    "duck": {
+      "en": {
+        "title": "Rubber duck",
+        "text": ""
+      },
+      "ko": {
+        "title": "고무 오리",
+        "text": ""
+      }
+    },
+    "mug": {
+      "en": {
+        "title": "Coffee mug",
+        "text": ""
+      },
+      "ko": {
+        "title": "머그컵",
+        "text": ""
+      }
+    },
+    "plant": {
+      "en": {
+        "title": "Plant",
+        "text": ""
+      },
+      "ko": {
+        "title": "화분",
+        "text": ""
+      }
+    },
+    "cat": {
+      "en": {
+        "title": "Cat",
+        "text": ""
+      },
+      "ko": {
+        "title": "고양이",
+        "text": ""
+      }
+    }
+  },
+  "ko": {
+    "profile": {
+      "title": "소프트웨어 엔지니어",
+      "headline": "AI 데이터 운영을 위한 내부 도구와, 다른 엔지니어들이 그 위에서 개발하는 공용 기반을 만들어요. 그 전에는 3년 동안 디자인 시스템을 만들었어요.",
+      "bio": [
+        "2022년 Handshake 프론트엔드 플랫폼 팀 인턴으로 시작해, 그대로 남아 회사 디자인 시스템을 맡았어요. 모든 제품 팀이 쓰는 컴포넌트, 디자인 토큰, 아이콘, 테이블, 문서, 접근성 개선 작업이었어요.",
+        "2026년에는 Handshake AI로 옮겼어요. 운영자가 AI 데이터 프로젝트를 세팅하고 운영할 때 쓰는 도구를 만들어요. 프로젝트 설정용 JSON 에디터, 역할 편집, 내비게이션, 감사 로그, 그리고 AI 에이전트가 운영 업무를 안전하게 할 수 있게 해주는 도구들이요."
+      ],
+      "pronounce": "햐나",
+      "education": [
+        {
+          "school": "스미스 칼리지",
+          "degree": "컴퓨터과학 학사",
+          "place": "미국 매사추세츠주 노샘프턴",
+          "honors": "최우등 졸업 (Magna Cum Laude), 학점 3.98/4.0"
+        }
+      ]
+    },
+    "chapters": {
+      "frontend-platform": {
+        "title": "Handshake Careers, 프론트엔드 플랫폼",
+        "short": "프론트엔드 플랫폼",
+        "summary": "모든 제품 팀이 쓰는 회사 디자인 시스템을 만들었어요. 컴포넌트, 디자인 토큰, 아이콘, 데이터 테이블, 문서까지요."
+      },
+      "allocations": {
+        "title": "Handshake AI, 얼로케이션",
+        "short": "얼로케이션",
+        "summary": "기여자가 AI 데이터 프로젝트에 참여하는 과정을 만들었어요. 본인 인증 게이트, 온보딩 흐름, 프로젝트 추천이요."
+      },
+      "opx": {
+        "title": "Handshake AI, 운영자 경험",
+        "short": "운영자 경험",
+        "summary": "운영자가 AI 데이터 프로젝트를 세팅하고 운영할 때 쓰는 도구와, 그 일을 자동화하는 에이전트 도구를 만들어요."
+      },
+      "asimula": {
+        "title": "Asimula, 창업 멤버",
+        "short": "Asimula",
+        "summary": "서울의 가상현실 콘서트 스타트업 창업 팀에서 기술 및 경영 지원 인턴으로 일했어요."
+      }
+    },
+    "entries": {
+      "in-product-agent-hints": {
+        "title": "제품 안 에이전트 힌트",
+        "summary": "운영자 페이지 곳곳에 닫을 수 있는 힌트를 추가해서, 누르면 운영자의 AI 에이전트에 준비된 프롬프트가 열리게 했어요."
+      },
+      "project-audit-log": {
+        "title": "프로젝트 감사 로그",
+        "summary": "프로젝트 설정, 규칙, 파이프라인을 누가 바꿨는지 보여주는 감사 로그를 만들었어요. 로그가 생기기 전의 이력도 포함했어요."
+      },
+      "dashboards-and-monitors": {
+        "title": "대시보드와 모니터",
+        "summary": "우리 팀 기능을 위한 대시보드와 모니터를 만들고, 도구 서버에 로깅을 추가했어요."
+      },
+      "repo-rule-for-audit-events": {
+        "title": "감사 이벤트 레포 규칙",
+        "summary": "프로젝트 단위 변경마다 감사 이벤트를 남기도록 하는 레포 규칙과 에이전트 스킬을 작성했어요."
+      },
+      "mcp-in-chatgpt-and-codex": {
+        "title": "ChatGPT와 Codex에서 쓰는 MCP",
+        "summary": "운영자가 ChatGPT와 Codex에서 우리 MCP 도구를 쓸 수 있도록, 보안 리뷰부터 출시까지 남은 작업을 마무리했어요."
+      },
+      "planning-data-moved-to-postgres": {
+        "title": "플래닝 데이터를 Postgres로 이전",
+        "summary": "설계 문서를 쓰고, 플래닝 기능을 실시간 웨어하우스 쿼리에서 버전 관리되는 Postgres 테이블과 정기 동기화로 옮겼어요."
+      },
+      "settings-cleanup": {
+        "title": "설정 정리",
+        "summary": "운영자 설정과 내비게이션의 코드 오너가 되어, 다른 팀들이 설정 페이지에서 기능을 옮겨가는 작업을 리뷰했어요."
+      },
+      "agent-tools-for-operators-mcp": {
+        "title": "운영자를 위한 에이전트 도구 (MCP)",
+        "summary": "AI 에이전트가 작업을 일괄로 조회, 생성, 승인, 이동할 수 있는 Model Context Protocol 도구를 만들었어요. 위험한 작업에는 사람의 승인과 만료를 거치게 했어요."
+      },
+      "feature-flag-cleanup": {
+        "title": "피처 플래그 정리",
+        "summary": "출시가 끝날 때마다 미루지 않고 피처 플래그와 예전 코드 경로를 지웠어요."
+      },
+      "new-operator-navigation": {
+        "title": "새 운영자 내비게이션",
+        "summary": "두 코드베이스에 걸쳐 기존 내비게이션을 공용 디자인 시스템 내비게이션으로 교체하고, 예전 코드를 삭제했어요."
+      },
+      "on-call-rotations": {
+        "title": "온콜 로테이션",
+        "summary": "주 담당 온콜을 맡고 팀원 대신 커버도 하면서, 지원 요청을 실제 수정으로 이어지게 했어요."
+      },
+      "onboarding-new-engineers": {
+        "title": "새 엔지니어 온보딩",
+        "summary": "새 팀원들이 우리 코드베이스에 적응하도록 직접, 그리고 코드 리뷰로 도왔어요."
+      },
+      "incident-commander-for-a-broken-form": {
+        "title": "고장 난 폼의 인시던트 지휘",
+        "summary": "업무 시간 외 호출을 받고, 서드파티 폼이 로드되지 않자 인시던트를 선언하고 대응을 이끌었어요."
+      },
+      "role-editing-on-live-projects": {
+        "title": "운영 중인 프로젝트의 역할 편집",
+        "summary": "설계 문서를 쓰고 역할 편집 기능을 만들어서, 운영자가 엔지니어에게 요청하지 않고도 진행 중인 프로젝트의 역할을 바꿀 수 있게 했어요."
+      },
+      "bulk-task-assignment": {
+        "title": "작업 일괄 배정",
+        "summary": "프로젝트 리드가 CSV 한 번으로 작업을 만들고 배정하거나, 테이블에서 고른 작업을 배정할 수 있게 했어요."
+      },
+      "project-recommendations-for-contributors": {
+        "title": "기여자를 위한 프로젝트 추천",
+        "summary": "\"추천 프로젝트\" 섹션과 그 트래킹을 만들고, 추천 엔드포인트의 속도를 개선했어요."
+      },
+      "security-and-reliability-fixes": {
+        "title": "보안과 안정성 수정",
+        "summary": "린트 가드레일과 함께 권한 확인을 고치고, 웹훅 재시도 루프와 사람들을 온보딩에 갇히게 하던 배치 작업을 고쳤어요."
+      },
+      "json-editors-for-project-setup": {
+        "title": "프로젝트 설정용 JSON 에디터",
+        "summary": "에디터 라이브러리를 비교한 뒤, 운영자와 에이전트가 프로젝트 설정 전체를 JSON으로 편집하고 검증할 수 있도록 Canvas와 JSON 전환 기능을 만들었어요."
+      },
+      "project-subject-areas": {
+        "title": "프로젝트 주제 분야",
+        "summary": "프로젝트에 필수 주제 분야를 추가했어요. 마이그레이션, 백필, 엔드포인트, UI까지 만들었어요."
+      },
+      "project-naming-pool": {
+        "title": "프로젝트 이름 풀",
+        "summary": "자동 완성이 되는 이름 풀과 중복 프로젝트 이름을 막는 장치를 만들었어요."
+      },
+      "inline-rule-criteria": {
+        "title": "규칙 안에서 바로 쓰는 조건",
+        "summary": "운영자가 별도 탭이 아닌 모든 규칙 대화상자 안에서 매칭 조건을 만들고 편집할 수 있게 했어요."
+      },
+      "identity-verification-gates": {
+        "title": "본인 인증 게이트",
+        "summary": "설계 문서를 쓰고, 기여자가 작업을 가져가는 모든 경로에 인증 확인을 추가했어요. 명확한 안내 메시지와 기존 사용자 예외 규칙도 함께요."
+      },
+      "document-request-flow": {
+        "title": "서류 요청 흐름",
+        "summary": "서류를 일괄 요청하는 관리자 도구와, 본인 인증과 서류 확인을 함께 조율하는 하나의 모달 시스템을 만들었어요."
+      },
+      "circular-dependencies-removed": {
+        "title": "순환 의존성 제거",
+        "summary": "디자인 시스템 패키지의 순환 의존성을 모두 없애고, 다시 생기지 않도록 린트 규칙을 추가했어요."
+      },
+      "one-icon-set-across-design-and-code": {
+        "title": "디자인과 코드를 잇는 하나의 아이콘 세트",
+        "summary": "디자인 시스템의 아이콘을 Figma와 두 제품 코드베이스가 함께 쓰는 새 세트로 교체했어요."
+      },
+      "layout-grid": {
+        "title": "레이아웃 그리드",
+        "summary": "문서, 플레이그라운드, 그리고 Figma에서 레이아웃을 만들어주는 AI 에디터 규칙까지 갖춘 반응형 레이아웃 컴포넌트를 만들었어요."
+      },
+      "legacy-icon-sets-deleted": {
+        "title": "예전 아이콘 세트 삭제",
+        "summary": "남아 있던 예전 아이콘을 모두 디자인 시스템 세트로 옮기고, 예전 세트를 삭제했어요."
+      },
+      "visual-regression-checks": {
+        "title": "시각적 회귀 검사",
+        "summary": "공용 테이블과 필터에 Storybook과 Chromatic 시각 검사를 추가했어요."
+      },
+      "design-playground-launch": {
+        "title": "디자인 플레이그라운드 출시",
+        "summary": "여름 인턴이 만든 라이브 프로토타이핑 도구를 출시하고 백로그를 정리했어요."
+      },
+      "ai-tooling-for-design-system-adoption": {
+        "title": "디자인 시스템 도입을 돕는 AI 도구",
+        "summary": "린트 자동 수정과 AI 에디터 규칙으로, 엔지니어가 문서를 먼저 읽지 않아도 올바른 컴포넌트 패턴을 쓰게 했어요."
+      },
+      "button-redesign-with-an-autofix": {
+        "title": "자동 수정이 함께하는 버튼 리디자인",
+        "summary": "버튼을 새 디자인으로 다시 만들고, 결정 기록과 함께 예전 변형을 폐기하고, 마이그레이션용 린트 자동 수정을 출시했어요."
+      },
+      "filter-fixes-and-new-primitives": {
+        "title": "필터 수정과 새 기본 컴포넌트",
+        "summary": "공용 필터의 날짜 범위, 검색, 상태가 사라지는 문제를 고치고, 팝오버 화살표와 반응형 탭을 추가했어요."
+      },
+      "design-token-pipeline": {
+        "title": "디자인 토큰 파이프라인",
+        "summary": "디자인 토큰 빌드를 업그레이드하고, 다크 모드를 준비하는 기초 토큰을 추가했어요."
+      },
+      "responsive-tables-and-a-filter-pill": {
+        "title": "반응형 테이블과 필터 필",
+        "summary": "공용 필터와 테이블이 작은 화면에서도 동작하게 하고, 접근성 있는 체크형 필터 필을 만들었어요."
+      },
+      "ui-library-consolidation-working-group": {
+        "title": "UI 라이브러리 통합 워킹 그룹",
+        "summary": "두 UI 라이브러리를 하나로 합치는 주간 워킹 그룹을 이끌었어요. 기능 동등성 추적, 네이밍 결정, 범위 판단을 맡았어요."
+      },
+      "one-layout-for-every-data-table": {
+        "title": "모든 데이터 테이블에 하나의 레이아웃",
+        "summary": "새 테이블 레이아웃을 플래그 뒤에 출시하고, 다른 팀의 테이블을 옮긴 다음 기본값으로 만들었어요."
+      },
+      "breakpoint-design-tokens": {
+        "title": "브레이크포인트 디자인 토큰",
+        "summary": "레이아웃 브레이크포인트 토큰을 추가하고, 화면 크기 기준값을 토큰에 맞췄어요."
+      },
+      "integration-tests-for-shared-filters": {
+        "title": "공용 필터 통합 테스트",
+        "summary": "공용 필터의 첫 통합 테스트 스위트를 만들었어요. 목 데이터, 스키마, 모든 필터 타입을 다뤄요."
+      },
+      "figma-parity-for-shared-components": {
+        "title": "공용 컴포넌트의 Figma 동등성",
+        "summary": "디자이너들과 디자인 시스템을 Figma와 비교 점검하고, 차이를 정리해 그중 많은 부분을 고쳤어요."
+      },
+      "ready-made-table-cell-types": {
+        "title": "바로 쓰는 테이블 셀 타입",
+        "summary": "공용 데이터 테이블에 텍스트, 숫자, 상태, 아바타, 태그, 링크 셀 타입을 문서와 함께 추가했어요."
+      },
+      "typescript-aware-lint-rule": {
+        "title": "TypeScript를 이해하는 린트 규칙",
+        "summary": "모놀리스를 TypeScript를 이해하는 no-shadow 규칙으로 바꾸고, 예전 규칙 때문에 넣어야 했던 예외 처리를 없앴어요."
+      },
+      "accessibility-fixes-in-shared-ui": {
+        "title": "공용 UI 접근성 수정",
+        "summary": "제품 전반에서 쓰는 컴포넌트의 스크린 리더, 키보드, 링크 가시성 문제를 고쳤어요."
+      },
+      "new-icons-including-an-ai-icon": {
+        "title": "AI 아이콘을 포함한 새 아이콘",
+        "summary": "소셜 링크, 추가 동작, AI 기능을 위한 새 아이콘을 추가했어요."
+      },
+      "accessible-date-picker": {
+        "title": "접근성을 갖춘 날짜 선택기",
+        "summary": "계획을 세우고, 직접 입력과 검증이 되는 날짜 선택기를 만들어 제품 페이지 곳곳의 예전 입력창을 대체했어요."
+      },
+      "design-system-docs-reorganized": {
+        "title": "디자인 시스템 문서 재구성",
+        "summary": "문서 사이트 구조를 평평하게 정리하고, 흩어진 예제를 컴포넌트당 한 페이지로 모으고, 빠진 문서를 썼어요."
+      },
+      "react-17-upgrade": {
+        "title": "React 17 업그레이드",
+        "summary": "업그레이드를 막던 라이브러리를 제거하고, 실패하던 테스트 스위트를 고쳐서 큰 모놀리스에 React 17을 적용했어요."
+      },
+      "shared-component-api-improvements": {
+        "title": "공용 컴포넌트 API 개선",
+        "summary": "디자인 시스템의 메뉴, 탭, 체크박스, 숫자 입력, 드롭다운, 툴팁을 개선했어요."
+      },
+      "localization-lint-rule": {
+        "title": "현지화 린트 규칙",
+        "summary": "공용 컴포넌트에 하드코딩된 영어 문자열을 잡아내는 린트 규칙을 추가하고, 찾아낸 것들을 없앴어요."
+      },
+      "keyboard-focus-and-contrast-fixes": {
+        "title": "키보드 포커스와 대비 수정",
+        "summary": "포커스 링이 키보드 사용자에게만 보이게 하고, 포커스 트랩을 추가하고, 포커스와 대비 버그를 고쳤어요."
+      },
+      "new-visual-theme-for-shared-components": {
+        "title": "공용 컴포넌트의 새 테마",
+        "summary": "태그, 스위치, 필터 필, 알림 등을 새 Figma 테마에 맞추면서 예전 테마도 계속 동작하게 했어요."
+      },
+      "toast-rebuild": {
+        "title": "토스트 재구축",
+        "summary": "새 테마에 맞춰 토스트 컴포넌트를 다시 만들고, 새 변형을 추가하고, 포커스 버그를 고쳤어요."
+      },
+      "icon-migration-inside-the-design-system": {
+        "title": "디자인 시스템 내부 아이콘 이전",
+        "summary": "공용 컴포넌트 안의 예전 아이콘 라이브러리 세 개를 디자인 시스템 자체 아이콘으로 바꾸고, 아이콘 카탈로그를 문서 사이트로 옮겼어요."
+      },
+      "docs-move-from-storybook-to-docusaurus": {
+        "title": "Storybook에서 Docusaurus로 문서 이전",
+        "summary": "디자인 시스템 문서를 Docusaurus로 옮기자고 제안하고, 이전 가이드를 쓰고, 많은 컴포넌트 페이지를 직접 다시 썼어요."
+      },
+      "date-input-calendar-button": {
+        "title": "날짜 입력 달력 버튼",
+        "summary": "날짜 입력에 달력 버튼을 추가하고, 동작하지 않던 props를 고치고, 날짜 선택기를 새 테마로 옮겼어요."
+      },
+      "code-reviews": {
+        "title": "코드 리뷰",
+        "summary": "여러 레포에서 접근성, 테스트, 권한, 공용 패턴을 중심으로 코드 리뷰를 해요. 엔지니어 채용 면접도 봐요."
+      },
+      "design-system-releases-and-changelogs": {
+        "title": "디자인 시스템 릴리스와 변경 기록",
+        "summary": "디자인 시스템 릴리스 과정을 맡아 메인 앱에 업그레이드하고, 프론트엔드 엔지니어를 위한 변경 기록 글을 썼어요."
+      },
+      "storybook-guide-plugin": {
+        "title": "Storybook 가이드 플러그인",
+        "summary": "모든 컴포넌트 페이지에 도움말과 사용 가이드를 넣어주는 Storybook 빌드 플러그인을 만들었어요."
+      },
+      "small-design-system-fixes": {
+        "title": "작은 디자인 시스템 수정",
+        "summary": "제품 팀들이 자주 부딪히던 공용 컴포넌트 문제를 고치고 API를 조금씩 보강했어요."
+      },
+      "design-token-reference-pages": {
+        "title": "디자인 토큰 레퍼런스 페이지",
+        "summary": "인턴 프로젝트예요. 디자인 시스템의 색상, 그림자, 타이포그래피, 크기 토큰을 보여주는 접근성 있는 Storybook 페이지를 만들었어요."
+      },
+      "storybook-theme-and-addons": {
+        "title": "Storybook 테마와 애드온",
+        "summary": "회사 Storybook 테마, 인터랙션 테스트, 상태 애드온을 세팅하고 빌드 설정 문제를 고쳤어요."
+      },
+      "vr-concert-prototype": {
+        "title": "VR 콘서트 플랫폼 프로토타입",
+        "summary": "가상현실 콘서트 플랫폼의 프론트엔드 프로토타입을 디자인하고 개발해서, 프리시드 투자를 받는 데 도움이 됐어요."
+      },
+      "accessible-vr-concert-pitch": {
+        "title": "모두를 위한 VR 콘서트 피칭",
+        "summary": "가상현실로 더 많은 사람이 콘서트를 즐길 수 있게 하자는 아이디어를 피칭해서 정부 지원을 받았어요."
+      }
+    },
+    "hackathons": {
+      "hack-2026": {
+        "event": "사내 해커톤",
+        "prize": "베스트 에이전틱 빌드",
+        "summary": "아이디어를 피칭하고 팀장을 맡았어요. 새 기여자처럼 프로젝트를 직접 진행해보고 막힌 지점을 알려주는 에이전트를 만들었어요."
+      },
+      "hack-2025": {
+        "event": "사내 해커톤",
+        "prize": "AI 심사위원 픽",
+        "summary": "AI 프로젝트 작업과 학생들의 취업 기회를 연결하는 마켓플레이스 아이디어."
+      },
+      "hack-2024": {
+        "event": "사내 해커톤",
+        "prize": "부문 우승",
+        "summary": "학생들이 활동으로 얻는 프로필 배지로, 더 많은 학생을 소셜 피드로 이끄는 아이디어."
+      },
+      "hack-2023": {
+        "event": "사내 해커톤",
+        "prize": "부문 우승",
+        "summary": "채용 캠페인 안의 관심 등록 폼. 채용 공고나 이벤트가 생기기 전부터 기업이 학생들의 관심을 받을 수 있어요."
+      }
+    },
+    "posts": {
+      "hello": {
+        "title": "안녕하세요",
+        "body": [
+          "제 작은 홈페이지에 오신 걸 환영해요! 2000년대에 좋아했던 미니 홈페이지들에 대한 오마주예요.",
+          "사진첩에서 프로젝트와 해커톤을 구경해보세요. 곧 글을 더 올릴게요."
+        ]
+      },
+      "todo": {
+        "title": "할 일",
+        "body": [
+          "이 페이지에서 다음에 할 일:",
+          "1. 더 나다운 이야기 채우기: 취미, 대학 생활 등",
+          "2. 게시판 쓰임새 정하기"
+        ]
+      }
+    },
+    "changelog": {
+      "1.0.0": {
+        "notes": [
+          "안녕하세요! 미니홈피 첫 버전이에요."
+        ]
+      }
+    }
+  }
+}</script>
+<script>
+const D = JSON.parse(document.getElementById('data').textContent);
+const AVATAR = 'avatar.gif';
+// GoatCounter site code, e.g. 'hyana' for hyana.goatcounter.com. Empty keeps the counter decorative.
+const GOATCOUNTER = '';
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
+const P = D.profile;
+const FIRST = P.name.split(' ')[0];
+
+/* Language */
+let lang = 'en';
+try { lang = localStorage.getItem('lang') || (navigator.language.startsWith('ko') ? 'ko' : 'en'); } catch { /* storage blocked */ }
+const KO = {
+  Home: '홈', Profile: '프로필', Album: '사진첩', Diary: '다이어리', Board: '게시판',
+  'Updated news': '업데이트 소식', 'Album folders': '사진첩 폴더', 'Mini-room': '미니룸', 'click things in the room': '방 안의 물건을 눌러보세요',
+  History: '히스토리', Present: '현재', 'say it': '발음', photos: '장', All: '전체', Tags: '태그',
+  'posts and site updates': '글과 사이트 소식', 'hackathons and links': '해커톤과 링크', 'No.': '번호', Title: '제목', Type: '분류', Date: '날짜',
+  Hackathon: '해커톤', Link: '링크', Team: '팀', 'TODAY IS…': '오늘의 기분', 'Surf (find me elsewhere)': '파도타기 (다른 곳에서 만나요)',
+  'Find me elsewhere': '다른 곳에서 만나요', site: '사이트', updated: '업데이트', Project: '프로젝트', Craft: '기술', Doc: '문서', 'On-call': '온콜', Fix: '수정', Email: '이메일', Latest: '최근 소식', 'Album pages': '사진첩 페이지', 'Previous page': '이전 페이지', 'Next page': '다음 페이지', links: '링크', Education: '학력', Skills: '기술 스택', 'Open in the Album': '사진첩에서 보기', 'more tags': '태그 더 보기', 'fewer tags': '태그 접기',
+  'Open the Album': '사진첩 보기', "What I'm working on": '지금 하는 일', "That's me!": '저예요!', Close: '닫기', Play: '재생', Pause: '일시정지',
+  'Not a real counter yet. Nothing is tracked here.': '아직 진짜 카운터가 아니에요. 아무것도 추적하지 않아요.',
+  'Visitor counts by GoatCounter. No cookies. Updates every few hours.': 'GoatCounter 방문자 수예요. 쿠키 없음, 몇 시간마다 갱신돼요.',
+  'Photo coming soon': '사진 준비 중', 'hello!': '안녕!', 'click to change my mood': '눌러서 기분 바꾸기', Now: '요즘',
+  'Previous month': '이전 달', 'Next month': '다음 달', 'Show only': '태그만 보기', Language: '언어',
+};
+const t = (s) => (lang === 'ko' && KO[s]) || s;
+const ko = (kind, id) => (lang === 'ko' && D.ko?.[kind]?.[id]) || {};
+const L = (kind, id, field, fallback) => ko(kind, id)[field] ?? fallback;
+const pf = (field) => (lang === 'ko' && D.ko?.profile?.[field]) || P[field];
+const pName = () => esc(lang === 'ko' && D.ko?.profile?.name ? `${D.ko.profile.name} (${P.name})` : P.name);
+
+/* Data helpers */
+const TAG = { hackathon: 'Hackathon', project: 'Project', craft: 'Craft', leadership: 'Team', doc: 'Doc', incident: 'On-call', papercut: 'Fix' };
+const GLYPH = { project: '</>', craft: '{ }', leadership: '++', doc: '.md', incident: '!!', papercut: 'fix()', hackathon: '★' };
+const ICONS = {
+  folder: [['.........', 'ooo......', 'oyyo.....', 'ooooooooo', 'oyyyyyyyo', 'oyyyyyyyo', 'oyyyyyyyo', 'oyyyyyyyo', 'ooooooooo'], { o: '#8a5a2b', y: '#f2c14e' }],
+  pin: [['...ooo...', '..orrro..', '.orrwrro.', '.orrrrro.', '.orrrrro.', '..orrro..', '...oro...', '....o....', '.........'], { o: '#5e1a17', r: '#c4262b', w: '#ffffff' }],
+  case: [['...ooo...', '...o.o...', 'ooooooooo', 'obbbbbbbo', 'obbbbbbbo', 'ooooyoooo', 'obbbbbbbo', 'obbbbbbbo', 'ooooooooo'], { o: '#2f5a8f', b: '#9fc0e6', y: '#f2c14e' }],
+  sparkle: [['....y....', '....y....', '...yyy...', 'yyyywyyyy', '...yyy...', '....y....', '....y....', '.........', '.........'], { y: '#e0a800', w: '#ffffff' }],
+  star: [['....y....', '...ywy...', 'yyyywyyyy', '.yyyyyyy.', '..yyyyy..', '.yyy.yyy.', '.yy...yy.', '.........', '.........'], { y: '#f2b705', w: '#fff3b0' }],
+  trophy: [['.yyyyyyy.', 'yywyyyyyy', 'y.yyyyy.y', '.yyyyyyy.', '..yyyyy..', '...yyy...', '....y....', '...ddd...', '..ddddd..'], { y: '#e0a800', w: '#fff3b0', d: '#8a5a2b' }],
+};
+const icon = (name) => { const [rows, pal] = ICONS[name]; return `<svg class="ico" viewBox="0 0 9 9" shape-rendering="crispEdges" aria-hidden="true">${spriteRects(0, 0, rows, pal)}</svg>`; };
+const ROLE_KO = { 'Technology / Executive Assistant Intern': '기술 및 경영 지원 인턴', 'Lead engineer': '리드 엔지니어', 'Core contributor': '핵심 기여자', Engineer: '엔지니어', Intern: '인턴', Mentor: '멘토', Organizer: '운영', Author: '작성자', Contributor: '기여자', 'Incident commander': '인시던트 지휘', 'On-call': '온콜', Owner: '담당', Reviewer: '리뷰어' };
+const tagOf = (e) => TAG[e.kind];
+const TAG_ALIAS = {
+  'On-call': 'incident-response', Mentoring: 'mentorship', 'AI agents': 'ai-agents', 'Code ownership': 'codeowners', 'design system': 'design-systems',
+  'Design Systems': 'design-systems', CSV: 'csv-import', analytics: 'event-tracking', Chromatic: 'visual-regression', Cursor: 'cursor-rules',
+  Leadership: 'tech-lead', Testing: 'integration-tests', 'Code review': 'code-review', 'Release management': 'release-eng', Node: 'nodejs',
+  'C#': 'csharp', 'Web Accessibility': 'a11y', 'Internationalization (i18n)': 'i18n', 'HTML/CSS': 'css',
+};
+const tagName = (raw) => TAG_ALIAS[raw] || raw.toLowerCase().replace(/\s+/g, '-');
+const tagsOf = (e) => e.tags || (e.stack || '').split('·').map((x) => tagName(x.trim())).filter(Boolean);
+const cHref = (c) => (c.kind === 'email' ? `mailto:${c.user}@${c.domain}` : c.url);
+const cLink = (c, arrow = true) => `<a href="${esc(cHref(c))}"${c.kind === 'email' ? '' : ' target="_blank" rel="noopener"'}>${esc(c.kind === 'email' ? `${c.user}@${c.domain}` : c.label)}${arrow && c.kind !== 'email' ? ' ↗' : ''}</a>`;
+const yearOf = (e) => (e.end || e.start).slice(0, 4);
+// English uses US style (Oct 2026 – Nov 2026, Nov 16, 2026); Korean keeps 2026.10 ~ 2026.11
+const MON = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+const ym = (s) => !s ? '' : s.length === 4 ? s : lang === 'ko' ? `${s.slice(0, 4)}.${s.slice(5, 7)}` : `${MON[Number(s.slice(5, 7)) - 1]} ${s.slice(0, 4)}`;
+const range = (a, b) => `${ym(a)} ${lang === 'ko' ? '~' : '–'} ${b ? ym(b) : t('Present')}`;
+const span = (e) => e.end && e.end !== e.start ? range(e.start, e.end) : ym(e.start);
+const fullDate = (s) => lang === 'ko' ? s.replaceAll('-', '.') : new Date(`${s}T12:00:00`).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+const eTitle = (e) => (e.hack ? L('hackathons', e.id, 'prize', e.title) : L('entries', e.id, 'title', e.title));
+const eSummary = (e) => L('entries', e.id, 'summary', e.summary);
+const eRole = (e) => (lang === 'ko' && ROLE_KO[e.role]) || e.role;
+const cTitle = (c) => L('chapters', c.id, 'title', c.title);
+const cShort = (c) => L('chapters', c.id, 'short', c.short || c.title);
+const HACKS = D.hackathons.map((h) => ({ id: h.id, kind: 'hackathon', start: h.year, title: h.prize, tags: ['hackathon', 'rapid-prototyping'], hack: h }));
+const byId = Object.fromEntries([...D.entries, ...HACKS].map((e) => [e.id, e]));
+const work = [...D.entries, ...HACKS].filter((e) => tagOf(e)).sort((a, b) => (b.end || b.start).localeCompare(a.end || a.start));
+const YEAR_COUNT = work.reduce((m, e) => m.set(yearOf(e), (m.get(yearOf(e)) || 0) + 1), new Map());
+const YEARS = [...YEAR_COUNT.keys()];
+const LATEST_COUNT = 6;
+const TAG_COUNT = work.flatMap(tagsOf).reduce((m, g) => m.set(g, (m.get(g) || 0) + 1), new Map());
+const ALL_TAGS = [...TAG_COUNT.keys()].sort((a, b) => TAG_COUNT.get(b) - TAG_COUNT.get(a) || a.localeCompare(b, 'en', { sensitivity: 'base' }));
+const posts = [...(D.posts || [])].sort((a, b) => b.date.localeCompare(a.date));
+const now = D.chapters.find((c) => !c.end) || D.chapters[D.chapters.length - 1];
+const SMOOTH = matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
+const DAYS = { en: ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'], ko: ['일', '월', '화', '수', '목', '금', '토'] };
+const dayOf = (s) => DAYS[lang][new Date(`${s}T12:00:00`).getDay()];
+const MOODS = [['\\(^o^)/', 'shipping', '배포 중'], ['c[_]', 'caffeinated', '커피 충전 중'], ['(;´Д`)', 'debugging', '디버깅 중'], ['(-_-)', 'in the zone', '집중 모드'], ['(ᵔᴥᵔ)', 'touching grass', '산책 중']];
+let mood = 0;
+
+/* Pixel sprites */
+const pxRect = (x, y, w, h, c) => `<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="${c}"/>`;
+const spriteRects = (x, y, rows, pal) => rows.map((row, j) => [...row].map((ch, i) => (pal[ch] ? pxRect(x + i, y + j, 1, 1, pal[ch]) : '')).join('')).join('');
+const ME = {
+  rows: [
+    '.......aaaaaa.......',
+    '....aaabbbbbbaaa....',
+    '...acdccceecdccca...',
+    '...acccccbbccccca...',
+    '...abbbbbbbbfbbbba..',
+    '..abbbbffbbbbbbbba..',
+    '.abbbbbbbbbbbbbbbba.',
+    '.abbbbbbbbbbgggbbba.',
+    '.abbbbbbbbgggggbbba.',
+    '.abbbbggggggggggbba.',
+    '.abbbghigggghiggbba.',
+    '.abbbgiiggggiiggbba.',
+    '.abjgkggggggggkgjba.',
+    '.abjbggggllggggbjba.',
+    'abbbbggggggggggbbbba',
+    'abbbbbggggggggbbbbba',
+    'abbbbbamggnomabbbbba',
+    'abbbbbmmpqqpmmbbbbba',
+    'abbbbmmmrqqqmmmbbbba',
+    '.aaammmqqqqqqmmmaaa.',
+    '...amsgqqqqqtgsma...',
+    '...ammmmqqqtmmmma...',
+    '...ammmmmqqmmmmma...',
+    '...ammmmmmmmmmmma...',
+    '....aauuuaauuuaa....',
+    '.....auuuaauuua.....',
+    '.....avvvaavvva.....',
+    '......aaa..aaa......',
+  ],
+  pal: { a: '#2b1a16', b: '#4a2c20', c: '#15151f', d: '#7d8fb5', e: '#9a9aa6', f: '#6e4331', g: '#f7d2b0', h: '#ffffff', i: '#2a1a14', j: '#c9c9d4', k: '#f29b9b', l: '#c25a4f', m: '#23232b', n: '#6b4423', o: '#4f9a52', p: '#ebe1d1', q: '#d8343a', r: '#ff9a9a', s: '#4a4a58', t: '#a3222b', u: '#3f4a6b', v: '#5b3f2e' },
+};
+const mini = () => `<svg class="mini" viewBox="0 0 20 28" shape-rendering="crispEdges" aria-hidden="true">${spriteRects(0, 0, ME.rows, ME.pal)}</svg>`;
+
+/* Top strip */
+const live = GOATCOUNTER && !['localhost', '127.0.0.1', ''].includes(location.hostname);
+let counts = live ? ['…', '…'] : ['1', '∞'];
+function renderCounter() {
+  const note = live ? 'Visitor counts by GoatCounter. No cookies. Updates every few hours.' : 'Not a real counter yet. Nothing is tracked here.';
+  $('counter').innerHTML = `<span title="${esc(t(note))}">TODAY <b>${esc(counts[0])}</b> <i>|</i> TOTAL <i>${esc(counts[1])}</i></span>`;
+}
+if (live) {
+  const gc = document.createElement('script');
+  gc.async = true;
+  gc.src = 'https://gc.zgo.at/count.js';
+  gc.dataset.goatcounter = `https://${GOATCOUNTER}.goatcounter.com/count`;
+  document.head.append(gc);
+  const base = `https://${GOATCOUNTER}.goatcounter.com/counter/TOTAL.json`;
+  const today = new Date().toLocaleDateString('en-CA');
+  const get = (url) => fetch(url).then((r) => (r.ok ? r.json() : { count: '0' })).then((j) => j.count).catch(() => '–');
+  Promise.all([get(`${base}?start=${today}`), get(base)]).then((c) => { counts = c; renderCounter(); });
+}
+let playing = false;
+$('play').onclick = () => {
+  playing = !playing;
+  $('play').textContent = playing ? '❚❚' : '▶';
+  $('play').setAttribute('aria-label', t(playing ? 'Pause' : 'Play'));
+  $('track').style.animationPlayState = playing ? 'running' : 'paused';
+};
+$('track').style.animationPlayState = 'paused';
+function renderTop() {
+  renderCounter();
+  const title = lang === 'ko' ? `${D.ko?.profile?.pronounce || FIRST}의 미니홈피` : `${FIRST.toLowerCase()}'s homepage`;
+  $('title').innerHTML = `${icon('star')}<span>${esc(title)}</span>${icon('star')}`;
+  document.title = title;
+  document.documentElement.lang = lang;
+  $('url').textContent = location.host || 'home sweet hompy';
+  $('play').setAttribute('aria-label', t(playing ? 'Pause' : 'Play'));
+  $('win-close').setAttribute('aria-label', t('Close'));
+}
+
+/* Left panel */
+function renderLeft() {
+  const m = MOODS[mood];
+  const nowItems = (P.now || []).map((n) => (lang === 'ko' && n.ko) || n).filter((n) => n.text);
+  $('left').innerHTML = `
+    <div class="lang" role="group" aria-label="${t('Language')}">
+      <button type="button" data-lang="en" aria-pressed="${lang === 'en'}">EN</button><button type="button" data-lang="ko" lang="ko" aria-pressed="${lang === 'ko'}">한국어</button>
+    </div>
+    <button type="button" class="mood" data-mood="1" title="${t('click to change my mood')}" aria-label="${t('TODAY IS…')} ${lang === 'ko' ? m[2] : m[1]}. ${t('click to change my mood')}">${t('TODAY IS…')} <b>${m[0]} ${lang === 'ko' ? m[2] : m[1]}</b></button>
+    <img class="photo" id="photo" src="${AVATAR}" alt="${esc(lang === 'ko' ? `${P.name}의 픽셀 아트 초상화` : `Pixel-art portrait of ${P.name}`)}">
+    <div class="headline">${esc(pf('headline'))}</div>
+    <div class="rule"></div>
+    <div class="me">${mini()}<div class="who"><b>${lang === 'ko' && D.ko?.profile?.name ? esc(D.ko.profile.name) : esc(P.name)}</b><span>${lang === 'ko' && D.ko?.profile?.name ? `${esc(P.name)} · ` : ''}${esc(P.pronouns)}</span>${pf('pronounce') ? `<small>${t('say it')}: ${esc(pf('pronounce'))}</small>` : ''}</div></div>
+    <div class="job">${esc(pf('title'))} · ${esc(P.team)}<br><span class="line">${icon('case')}${esc(cShort(now))}</span>${P.location ? `<br><span class="line">${icon('pin')}${esc(P.location)}</span>` : ''}</div>
+    ${nowItems.length ? `<div class="nowbox"><p class="box-title">${t('Now')}</p>${nowItems.map((n) => `<p><b>${esc(n.label)}</b> ${esc(n.text)}</p>`).join('')}</div>` : ''}
+    <div class="shortcuts">
+      <button type="button" data-view="Album"><b>${work.length}</b>${t('Album')}</button>
+      <button type="button" data-view="Diary"><b>${posts.length}</b>${t('Diary')}</button>
+      <button type="button" data-view="Board"><b>${P.contacts.length}</b>${t('Board')}</button>
+    </div>
+    <details class="surf"><summary>${t('Surf (find me elsewhere)')}</summary>
+      <ul>${P.contacts.map((c) => `<li>${cLink(c)}</li>`).join('')}</ul>
+    </details>`;
+  $('photo').onerror = () => { $('photo').outerHTML = `<div class="photo-empty" role="img" aria-label="${t('Photo coming soon')}">🙂</div>`; };
+}
+
+/* Mini-room: pixel art on a 160x90 grid */
+const SPOTS = {
+  window: [12, 7, 28, 22], notes: [46, 9, 22, 15], bookshelf: [128, 10, 26, 44], monitors: [70, 18, 42, 18],
+  duck: [70, 35, 7, 6], mug: [103, 30, 7, 11], plant: [1, 36, 13, 18], me: [40, 45, 20, 28], cat: [61, 72, 11, 6], diploma: [113, 8, 13, 11], vr: [131, 4, 16, 6],
+};
+const SPOT_LABEL = {
+  en: { window: 'Window', notes: 'Sticky notes: open the Diary', bookshelf: 'Bookshelf: open the Album', monitors: "Monitors: what I'm working on", duck: 'Rubber duck', mug: 'Coffee mug', plant: 'Plant', me: 'Me', cat: 'Cat', diploma: 'Diploma: education', vr: 'VR headset: before Handshake' },
+  ko: { window: '창문', notes: '포스트잇: 다이어리 열기', bookshelf: '책장: 사진첩 열기', monitors: '모니터: 지금 하는 일', duck: '고무 오리', mug: '머그컵', plant: '화분', me: '나', cat: '고양이', diploma: '졸업장: 학력', vr: 'VR 헤드셋: Handshake 이전' },
+};
+const BUILT_IN_SPOTS = ['me', 'monitors', 'bookshelf', 'notes', 'diploma', 'vr'];
+const roomText = (id) => { const r = D.room?.[id]; return (lang === 'ko' && r?.ko?.text && r.ko) || (r?.en?.text && r.en) || null; };
+const activeSpots = () => Object.keys(SPOTS).filter((id) => BUILT_IN_SPOTS.includes(id) || roomText(id));
+function room() {
+  const R = [];
+  const px = (x, y, w, h, c) => R.push(pxRect(x, y, w, h, c));
+  const sprite = (x, y, rows, pal) => R.push(spriteRects(x, y, rows, pal));
+
+  // Wall and baseboard
+  px(0, 0, 160, 40, '#f1e4c6');
+  for (let x = 4; x < 160; x += 8) px(x, 2, 1, 35, '#e7d7b4');
+  px(0, 0, 160, 2, '#c9a77a');
+  px(0, 37, 160, 3, '#9a6a3c'); px(0, 37, 160, 1, '#b9854f');
+
+  // Wood floor
+  for (let y = 40, r = 0; y < 90; y += 5, r++) {
+    px(0, y, 160, 5, r % 2 ? '#c18749' : '#c98f55');
+    px(0, y + 4, 160, 1, '#a8713d');
+    for (let x = (r * 23) % 40; x < 160; x += 40) px(x, y, 1, 4, '#a8713d');
+  }
+
+  // Window
+  px(12, 7, 28, 22, '#8a5a2b'); px(14, 9, 24, 18, '#9fd3f5'); px(14, 20, 24, 7, '#bfe3ff');
+  px(31, 11, 3, 3, '#ffe066'); px(17, 12, 6, 2, '#fff'); px(19, 11, 3, 1, '#fff');
+  px(25, 9, 2, 18, '#8a5a2b'); px(14, 17, 24, 2, '#8a5a2b'); px(10, 29, 32, 2, '#b9854f');
+
+  // Sticky-note board
+  px(46, 9, 22, 15, '#8a5a2b'); px(47, 10, 20, 13, '#d9a86c');
+  [[49, 12, '#ffe066'], [56, 11, '#ff9fb0'], [61, 16, '#9fe0b0'], [50, 18, '#9fd3f5']].forEach(([x, y, c]) => {
+    px(x, y, 5, 5, c); px(x + 1, y + 2, 3, 1, 'rgba(0,0,0,.18)'); px(x + 2, y, 1, 1, '#e5322d');
+  });
+
+  // Bookshelf
+  px(128, 10, 26, 44, '#7d5530'); px(130, 12, 22, 40, '#5e3f22');
+  const colors = ['#e5322d', '#3f6ea8', '#ffb000', '#5aa36b', '#8a6fc7', '#ff8c3a', '#f2f2f2'];
+  [24, 37, 50].forEach((yb, s) => {
+    px(130, yb, 22, 2, '#7d5530');
+    let x = 131, i = s * 3;
+    while (x < 149) {
+      const w = 2 + (i % 2), h = 7 + ((i * 5) % 4);
+      if (i % 5 === 4) x += 2;
+      if (x + w > 151) break;
+      px(x, yb - h, w, h, colors[i % colors.length]);
+      px(x, yb - h + 2, w, 1, 'rgba(255,255,255,.35)');
+      x += w; i++;
+    }
+  });
+
+  // Desk
+  px(66, 36, 56, 6, '#b9854f'); px(66, 36, 56, 1, '#d1a06a'); px(66, 42, 56, 2, '#8a5a2b');
+  px(68, 44, 3, 14, '#7d5530'); px(117, 44, 3, 14, '#7d5530');
+  px(100, 44, 16, 9, '#9a6a3c'); px(106, 48, 4, 1, '#5e3f22');
+
+  // Two monitors with code
+  [[70, false], [92, true]].forEach(([mx, term]) => {
+    px(mx, 18, 20, 15, '#2b2b2b'); px(mx + 1, 19, 18, 12, term ? '#10151c' : '#1e2a3a');
+    px(mx + 9, 33, 2, 3, '#444'); px(mx + 6, 35, 8, 1, '#444');
+    const lines = term
+      ? [[0, 6, '#7ee787'], [0, 11, '#7ee787'], [0, 4, '#8b949e'], [0, 9, '#7ee787'], [0, 2, '#f2f2f2']]
+      : [[0, 7, '#ff7b72'], [2, 10, '#79c0ff'], [4, 6, '#d2a8ff'], [2, 12, '#a5d6ff'], [0, 3, '#ff7b72']];
+    lines.forEach(([ind, len, c], k) => px(mx + 3 + ind, 21 + k * 2, len, 1, c));
+  });
+
+  // Desk items: rubber duck, keyboard, mouse, mug, succulent
+  px(71, 38, 4, 2, '#ffd23f'); px(73, 36, 2, 2, '#ffd23f'); px(75, 37, 1, 1, '#ff8c3a'); px(73, 36, 1, 1, '#222');
+  px(78, 38, 18, 3, '#d8d8d8'); for (let x = 79; x < 95; x += 2) px(x, 39, 1, 1, '#a0a0a0');
+  px(98, 39, 2, 2, '#d8d8d8');
+  px(104, 37, 4, 4, '#fff'); px(108, 38, 1, 2, '#fff'); px(104, 37, 4, 1, '#6b3e1e'); px(105, 33, 1, 2, 'rgba(255,255,255,.7)'); px(106, 31, 1, 2, 'rgba(255,255,255,.5)');
+  px(114, 33, 5, 4, '#c9774b'); px(113, 30, 2, 3, '#5aa85a'); px(115, 28, 2, 5, '#6cbf6a'); px(117, 30, 2, 3, '#7fd07c');
+
+  // Office chair seen from behind
+  px(80, 46, 14, 11, '#2f5a8f'); px(81, 47, 12, 9, '#4f7fbf'); px(79, 56, 16, 3, '#2f5a8f');
+  px(86, 59, 2, 5, '#444'); px(81, 64, 12, 1, '#444'); px(81, 65, 1, 1, '#222'); px(92, 65, 1, 1, '#222'); px(86, 65, 2, 1, '#222');
+
+  // Corner plant
+  sprite(2, 36, [
+    '...gg..g....',
+    '..gGg.gGg...',
+    '.gGGggGGg.g.',
+    'gGg.gGGg.gGg',
+    '.g.gGgGgggG.',
+    '..gGg.gGg...',
+    '...g.gg.....',
+  ], { g: '#4f9a52', G: '#7fd07c' });
+  px(3, 43, 10, 2, '#b0603a'); px(4, 45, 8, 8, '#c9774b'); px(5, 46, 1, 6, '#dd8a5c');
+
+  // Rug
+  px(28, 63, 48, 20, '#e8a0aa'); px(26, 65, 52, 16, '#e8a0aa');
+  px(30, 66, 44, 14, '#f4c6cc'); px(30, 72, 44, 2, '#e8a0aa');
+
+  // Me: brown hair, sunglasses up, leather jacket, an apple
+  px(42, 71, 16, 2, 'rgba(0,0,0,.18)');
+  sprite(40, 45, ME.rows, ME.pal);
+
+  // Cat napping on the rug
+  sprite(62, 73, [
+    '.c.c......',
+    'cccccccc..',
+    'cecdcdccc.',
+    'cccccccccc',
+    '.cccccccc.',
+  ], { c: '#e89a4b', d: '#c47a33', e: '#5a3a1e' });
+
+  // Diploma on the wall
+  px(113, 8, 13, 11, '#c9a227'); px(114, 9, 11, 9, '#fffbe8');
+  px(116, 11, 7, 1, '#9a8a6a'); px(116, 13, 5, 1, '#9a8a6a'); px(116, 15, 3, 1, '#9a8a6a');
+  px(121, 14, 3, 3, '#c4262b'); px(121, 17, 1, 2, '#c4262b'); px(123, 17, 1, 2, '#9a1f22');
+
+  // VR headset on top of the bookshelf
+  px(131, 7, 2, 1, '#222'); px(145, 7, 2, 1, '#222');
+  px(133, 5, 12, 5, '#3a3a46'); px(134, 6, 10, 3, '#55556a');
+  px(135, 7, 3, 1, '#7d8fb5'); px(140, 7, 3, 1, '#7d8fb5'); px(133, 10, 12, 1, 'rgba(0,0,0,.2)');
+
+  // Speech bubble
+  px(36, 35, 28, 8, '#3f6ea8'); px(37, 36, 26, 6, '#fff'); px(49, 43, 3, 1, '#3f6ea8'); px(50, 42, 1, 1, '#fff'); px(50, 44, 1, 1, '#3f6ea8');
+
+  const spots = activeSpots().map((id) => {
+    const [x, y, w, h] = SPOTS[id];
+    return `<rect class="spot" data-spot="${id}" x="${x}" y="${y}" width="${w}" height="${h}" tabindex="0" role="button" aria-label="${esc(SPOT_LABEL[lang][id])}"><title>${esc(SPOT_LABEL[lang][id])}</title></rect>`;
+  }).join('');
+
+  return `<svg class="room" viewBox="0 0 160 90" shape-rendering="crispEdges" role="group" aria-label="Pixel-art mini-room: a desk with two monitors showing code, a rubber duck and a coffee mug, a bookshelf, a window, a sticky-note board, a plant, a Smith College diploma, a VR headset, a cat napping on the rug, and ${esc(FIRST)} in a leather jacket holding an apple.">
+    ${R.join('')}
+    <text x="50" y="41" font-family="Galmuri11, monospace" font-size="5.5" fill="#3f6ea8" text-anchor="middle">${t('hello!')}</text>
+    ${spots}
+  </svg>`;
+}
+
+const tagFor = (skill) => ALL_TAGS.find((g) => g === tagName(skill));
+function education() {
+  if (!P.education?.length) return '';
+  const kos = (lang === 'ko' && D.ko?.profile?.education) || [];
+  return `<p class="box-title">${t('Education')}</p><ul class="history">${P.education.map((ed, i) => {
+    const e = { ...ed, ...(kos[i] || {}) };
+    return `<li><span class="when">${ed.start ? range(ed.start, ed.date) : ym(ed.date)}</span><span><b>${esc(e.school)}</b> · ${esc(e.place)}<br>${esc(e.degree)}<br>${esc(e.honors)}</span></li>`;
+  }).join('')}</ul>`;
+}
+function skills() {
+  if (!P.skills?.length) return '';
+  return `<p class="box-title">${t('Skills')}</p><div class="skills">${P.skills.map((sk) => {
+    const g = tagFor(sk);
+    return g ? `<button type="button" data-tag="${esc(g)}" title="${t('Open in the Album')}">${esc(sk)}</button>` : `<span>${esc(sk)}</span>`;
+  }).join('')}</div>`;
+}
+
+/* Views */
+const PER_PAGE = 9;
+let album = { year: 'All', tag: '', allTags: false, page: 1 };
+let cal = (posts[0]?.date || new Date().toLocaleDateString('en-CA')).slice(0, 7);
+const views = {
+  Home() {
+    const yc = YEARS.map((y) => `<dt><button type="button" data-folder="${y}">${icon('folder')}${y}</button></dt><dd><b>${YEAR_COUNT.get(y)}</b></dd>`).join('');
+    return `
+      <div class="right-head"><h2>${t('Updated news')}</h2></div>
+      <div class="news">
+        <div><p class="box-title">${t('Latest')}</p><ul>${work.slice(0, LATEST_COUNT).map((e) =>
+          `<li><span class="tag ${tagOf(e)}">${t(tagOf(e))}</span><button type="button" data-entry="${e.id}">${esc(eTitle(e))}</button></li>`).join('')}</ul></div>
+        <div class="folders-box"><p class="box-title">${t('Album folders')}</p><dl class="counts">${yc}</dl></div>
+      </div>
+      <div class="room-wrap"><div class="label">${t('Mini-room')}<span>${icon('sparkle')}${t('click things in the room')}</span></div>${room()}</div>`;
+  },
+  Profile() {
+    return `
+      <div class="right-head"><h2>${t('Profile')}</h2><span>${esc(pf('pronounce') ? `${t('say it')}: ${pf('pronounce')}` : '')}</span></div>
+      <div class="prof">${pf('bio').map((p) => `<p>${esc(p)}</p>`).join('')}</div>
+      <p class="box-title">${t('History')}</p>
+      <ul class="history">${[...D.chapters].reverse().map((c) => `
+        <li><span class="when">${range(c.start, c.end)}</span><span><b>${esc(cTitle(c))}</b><br>${esc(L('chapters', c.id, 'summary', c.summary))}</span></li>`).join('')}</ul>
+      ${education()}
+      ${skills()}
+      <div class="contacts">${P.contacts.map((c) => cLink(c)).join('')}</div>`;
+  },
+  Album() {
+    const list = work.filter((e) => (album.year === 'All' || yearOf(e) === album.year) && (!album.tag || tagsOf(e).includes(album.tag)));
+    const pages = Math.max(1, Math.ceil(list.length / PER_PAGE));
+    album.page = Math.min(Math.max(1, album.page), pages);
+    const shown = list.slice((album.page - 1) * PER_PAGE, album.page * PER_PAGE);
+    return `
+      <div class="right-head"><h2>${t('Album')}</h2><span>${list.length} ${t('photos')}</span></div>
+      <div class="folders">${['All', ...YEARS].map((f) => `<button type="button" data-folder="${f}" aria-pressed="${f === album.year}">${icon('folder')}${t(f)}</button>`).join('')}</div>
+      <div class="tagrow"><span>${t('Tags')}</span>${ALL_TAGS.filter((g) => album.allTags || TAG_COUNT.get(g) > 1 || g === album.tag).map((g) => `<button type="button" data-tag="${esc(g)}" aria-pressed="${g === album.tag}">#${esc(g)}</button>`).join('')}<button type="button" class="more" data-moretags="1" aria-expanded="${album.allTags}">${album.allTags ? t('fewer tags') : `${t('more tags')} +`}</button></div>
+      <div class="album" id="album-grid">${shown.map((e) => `<button type="button" class="pic" data-entry="${e.id}">
+          <span class="shot ${tagOf(e)}"><span><b class="glyph" aria-hidden="true">${esc(e.glyph || GLYPH[e.kind])}</b><span class="tchips">${tagsOf(e).map((g) => `<i>#${esc(g)}</i>`).join('')}</span></span></span>
+          <span class="cap">${esc(eTitle(e))}${e.hack ? ` · ${esc(e.hack.team)}` : ''}</span><span class="date">${span(e)}</span></button>`).join('')}</div>
+      ${pages > 1 ? `<nav class="pager" aria-label="${t('Album pages')}">
+        <button type="button" data-page="${album.page - 1}" ${album.page === 1 ? 'disabled' : ''} aria-label="${t('Previous page')}">◀</button>
+        ${Array.from({ length: pages }, (_, i) => i + 1).map((n) => `<button type="button" data-page="${n}"${n === album.page ? ' aria-current="page"' : ''}>${n}</button>`).join('')}
+        <button type="button" data-page="${album.page + 1}" ${album.page === pages ? 'disabled' : ''} aria-label="${t('Next page')}">▶</button>
+      </nav>` : ''}`;
+  },
+  Diary() {
+    const list = posts.map((p) => {
+      const k = ko('posts', p.id || p.date);
+      return `
+      <div class="post" id="post-${p.id || p.date}" data-date="${p.date}">
+        <div class="post-date">${fullDate(p.date)}<span>${dayOf(p.date)}</span></div>
+        <h3>${esc(k.title ?? p.title)}</h3>
+        ${(k.body ?? p.body).map((x) => `<p>${esc(x)}</p>`).join('')}
+      </div>`;
+    }).join('');
+    const log = D.changelog.map((c) => `<div class="post"><div class="post-date">${fullDate(c.date)}<span>${dayOf(c.date)} · ${t('site')} v${esc(c.version)}</span></div>${(ko('changelog', c.version).notes ?? c.notes).map((n) => `<p>${esc(n)}</p>`).join('')}</div>`).join('');
+    return `<div class="right-head"><h2>${t('Diary')}</h2><span>${t('posts and site updates')}</span></div>${calendar()}${list}${log}`;
+  },
+  Board() {
+    const rows = [
+      ...P.contacts.map((c) => ({ cat: c.kind === 'email' ? t('Email') : t('Link'), cell: cLink(c), date: '' })),
+    ];
+    return `
+      <div class="right-head"><h2>${t('Board')}</h2><span>${t('links')}</span></div>
+      <table class="board"><thead><tr><th>${t('No.')}</th><th>${t('Title')}</th><th>${t('Type')}</th><th>${t('Date')}</th></tr></thead><tbody>
+      ${rows.map((r, i) => `<tr><td class="n">${rows.length - i}</td><td>${r.cell}</td><td class="d">${r.cat}</td><td class="d">${esc(r.date)}</td></tr>`).join('')}
+      </tbody></table>`;
+  },
+};
+
+function calendar() {
+  const [y, m] = cal.split('-').map(Number);
+  const first = new Date(y, m - 1, 1).getDay();
+  const days = new Date(y, m, 0).getDate();
+  const has = new Set([...posts.map((p) => p.date), ...D.changelog.map((c) => c.date)]);
+  const today = new Date().toLocaleDateString('en-CA');
+  const cells = [];
+  for (let i = 0; i < first; i++) cells.push('<span></span>');
+  for (let d = 1; d <= days; d++) {
+    const date = `${cal}-${String(d).padStart(2, '0')}`;
+    const cls = date === today ? ' today' : '';
+    cells.push(has.has(date) ? `<button type="button" class="has${cls}" data-day="${date}" aria-label="${date}${lang === 'ko' ? ' 글 보기' : ', go to post'}">${d}</button>` : `<span class="${cls.trim()}">${d}</span>`);
+  }
+  return `<div class="cal">
+    <div class="cal-head"><button type="button" data-cal="-1" aria-label="${t('Previous month')}">◀</button><b>${lang === 'ko' ? `${y}.${String(m).padStart(2, '0')}` : new Date(y, m - 1, 1).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}</b><button type="button" data-cal="1" aria-label="${t('Next month')}">▶</button></div>
+    <div class="cal-grid" role="presentation">${DAYS[lang].map((d) => `<span class="dow">${d}</span>`).join('')}${cells.join('')}</div>
+  </div>`;
+}
+
+let current = 'Home';
+function renderTabs() {
+  $('tabs').innerHTML = Object.keys(views).map((v) => `<button type="button" data-view="${v}"${v === current ? ' aria-current="page"' : ''}>${t(v)}</button>`).join('');
+}
+function show(view) {
+  current = view;
+  $('right').innerHTML = views[view]();
+  document.querySelectorAll('#tabs [data-view]').forEach((b) => (b.dataset.view === view ? b.setAttribute('aria-current', 'page') : b.removeAttribute('aria-current')));
+}
+function renderAll() {
+  renderTop();
+  renderTabs();
+  renderLeft();
+  show(current);
+  const latest = D.changelog[0];
+  $('foot').textContent = `${t('site')} v${latest.version} · ${t('updated')} ${fullDate(latest.date)}`;
+}
+
+document.addEventListener('click', (ev) => {
+  const el = ev.target.closest('[data-view],[data-entry],[data-folder],[data-tag],[data-hack],[data-spot],[data-cal],[data-day],[data-lang],[data-mood],[data-moretags],[data-page]');
+  if (!el) return;
+  const d = el.dataset;
+  if (!$('pop').hidden && (d.view || d.tag)) closeWin();
+  if (d.view) {
+    show(d.view);
+    if (el.closest('#tabs') && matchMedia('(max-width: 760px)').matches) $('right').scrollIntoView({ behavior: SMOOTH, block: 'start' });
+  } else if (d.page) {
+    const y = window.scrollY;
+    album.page = Number(d.page); show('Album');
+    window.scrollTo(0, y);
+    document.querySelector('.pager [aria-current="page"]')?.focus({ preventScroll: true });
+  } else if (d.folder) { album.year = d.folder; album.page = 1; show('Album'); }
+  else if (d.moretags) { album.allTags = !album.allTags; show('Album'); }
+  else if (d.tag) { album.tag = album.tag === d.tag ? '' : d.tag; album.page = 1; show('Album'); }
+  else if (d.entry) openEntry(byId[d.entry]);
+  else if (d.hack) openHack(D.hackathons.find((h) => h.id === d.hack));
+  else if (d.spot) openSpot(d.spot);
+  else if (d.cal) {
+    const [y, m] = cal.split('-').map(Number);
+    const n = new Date(y, m - 1 + Number(d.cal), 1);
+    cal = `${n.getFullYear()}-${String(n.getMonth() + 1).padStart(2, '0')}`;
+    show('Diary');
+  } else if (d.day) document.querySelector(`.post[data-date="${d.day}"]`)?.scrollIntoView({ behavior: SMOOTH, block: 'center' });
+  else if (d.lang) {
+    lang = d.lang;
+    try { localStorage.setItem('lang', lang); } catch { /* storage blocked */ }
+    renderAll();
+  } else if (d.mood) { mood = (mood + 1) % MOODS.length; renderLeft(); }
+});
+document.addEventListener('keydown', (ev) => {
+  const s = ev.target.closest?.('[data-spot]');
+  if (s && (ev.key === 'Enter' || ev.key === ' ')) { ev.preventDefault(); openSpot(s.dataset.spot); }
+});
+
+/* Popup */
+let lastFocus;
+function openWin(title, body) {
+  lastFocus = document.activeElement;
+  $('win-title').textContent = `■ ${title}`;
+  $('win-body').innerHTML = body;
+  $('pop').hidden = false;
+  $('win-close').focus();
+}
+function closeWin() { $('pop').hidden = true; lastFocus?.focus(); }
+$('win-close').onclick = closeWin;
+$('pop').onclick = (ev) => { if (ev.target === $('pop')) closeWin(); };
+document.addEventListener('keydown', (ev) => {
+  if ($('pop').hidden) return;
+  if (ev.key === 'Escape') return closeWin();
+  if (ev.key !== 'Tab') return;
+  const f = [...$('pop').querySelectorAll('button, a[href], [tabindex]:not([tabindex="-1"])')];
+  const first = f[0], last = f[f.length - 1];
+  if (ev.shiftKey && document.activeElement === first) { ev.preventDefault(); last.focus(); }
+  else if (!ev.shiftKey && document.activeElement === last) { ev.preventDefault(); first.focus(); }
+});
+function openEntry(e) {
+  if (e.hack) return openHack(e.hack);
+  openWin(t(tagOf(e)), `
+    <h3>${esc(eTitle(e))}</h3>
+    <div class="meta">${esc(eRole(e))} · ${span(e)}</div>
+    <p>${esc(eSummary(e))}</p>
+    <div class="stacks">${tagsOf(e).map((g) => `<button type="button" class="stackchip" data-tag="${esc(g)}" title="${t('Show only')}">#${esc(g)}</button>`).join('')}</div>`);
+}
+function openHack(h) {
+  const k = ko('hackathons', h.id);
+  openWin(t('Hackathon'), `
+    <h3 class="line">${icon('trophy')}${esc(k.prize ?? h.prize)}</h3>
+    <div class="meta">${esc(k.event ?? h.event)} ${esc(h.year)} · ${t('Team')} ${esc(h.team)}</div>
+    <p>${esc(k.summary ?? h.summary)}</p>
+    <div class="stacks">${byId[h.id].tags.map((g) => `<button type="button" class="stackchip" data-tag="${esc(g)}">#${esc(g)}</button>`).join('')}</div>`);
+}
+function openSpot(id) {
+  if (id === 'bookshelf') { album = { year: 'All', tag: '', allTags: false, page: 1 }; return show('Album'); }
+  if (id === 'notes') return show('Diary');
+  if (id === 'diploma') return openWin(t('Education'), `<div class="prof">${education().replace(/<p class="box-title">.*?<\/p>/, '')}</div>`);
+  if (id === 'vr') {
+    const c = D.chapters.find((x) => x.id === 'asimula');
+    return openWin(cShort(c), `<h3>${esc(cTitle(c))}</h3><div class="meta">${range(c.start, c.end)}</div><p>${esc(L('chapters', c.id, 'summary', c.summary))}</p>
+      <button type="button" class="chip" data-entry="vr-concert-prototype">${esc(eTitle(byId['vr-concert-prototype']))}</button>`);
+  }
+  if (id === 'monitors') {
+    return openWin(t("What I'm working on"), `<h3>${esc(cTitle(now))}</h3><p>${esc(L('chapters', now.id, 'summary', now.summary))}</p>
+      <button type="button" class="chip" data-view="Album">${t('Open the Album')}</button>`);
+  }
+  if (id === 'me') {
+    return openWin(t("That's me!"), `<img class="pop-photo" src="${AVATAR}" alt="${esc(lang === 'ko' ? `${P.name}의 픽셀 아트 초상화` : `Pixel-art portrait of ${P.name}`)}"><h3>${pName()}</h3>
+      <div class="meta">${esc(P.pronouns)}${pf('pronounce') ? ` · ${t('say it')}: ${esc(pf('pronounce'))}` : ''}</div><p>${esc(pf('headline'))}</p>`);
+  }
+  const c = roomText(id);
+  if (c) openWin(c.title, `<p>${esc(c.text)}</p>`);
+}
+
+renderAll();
+</script>
+</body>
+</html>
